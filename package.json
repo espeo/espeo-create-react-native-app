@@ -6,6 +6,9 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
+    "run-android:dev": "ENVFILE=.env react-native run-android --variant=devDebug --appIdSuffix=dev",
+    "run-android:stage": "ENVFILE=.env.stage react-native run-android --variant=stageDebug --appIdSuffix=stage",
+    "run-android:prod": "ENVFILE=.env.prod react-native run-android --variant=prodDebug --appIdSuffix=prod",
     "test": "jest",
     "lint": "eslint ."
   },
