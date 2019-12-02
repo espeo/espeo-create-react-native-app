@@ -121,6 +121,7 @@ def enableHermes = project.ext.react.get("enableHermes", false);
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
+    flavorDimensions "default"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -161,6 +162,27 @@ android {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
+    }
+    productFlavors {
+        dev {
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId "com.espeocreatereactnativeapp.dev"
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "build_config_package", "com.espeocreatereactnativeapp"
+        }
+         stage {
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId "com.espeocreatereactnativeapp.stage"
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "build_config_package", "com.espeocreatereactnativeapp"
+        }
+        prod {
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId "com.espeocreatereactnativeapp.prod"
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "build_config_package", "com.espeocreatereactnativeapp"
+        }
+
     }
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
