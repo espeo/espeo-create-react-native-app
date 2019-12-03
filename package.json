@@ -3,15 +3,18 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
+    "android:dev": "ENVFILE=.env react-native run-android --variant=devDebug --appIdSuffix=dev",
+    "android:stage": "ENVFILE=.env.staging react-native run-android --variant=stageDebug --appIdSuffix=stage",
+    "android:prod": "ENVFILE=.env.production react-native run-android --variant=prodDebug --appIdSuffix=prod",
     "test": "jest",
     "lint": "eslint ."
   },
   "dependencies": {
     "react": "16.9.0",
-    "react-native": "0.61.5"
+    "react-native": "0.61.5",
+    "react-native-config": "^0.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
