@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "run-android:dev": "ENVFILE=.env react-native run-android --variant=devDebug --appIdSuffix=dev",
