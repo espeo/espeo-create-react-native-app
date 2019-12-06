@@ -11,4 +11,5 @@ export const MainTitle = styled.Text`
   font-family: Georgia;
   font-size: 18;
   font-weight: bold;
+  margin-bottom: 10;
 `;

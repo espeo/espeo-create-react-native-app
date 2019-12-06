@@ -1,8 +1,8 @@
-import Profile from './Profile';
+import ProfileScreen from './ProfileScreen';
 
 export default {
-  module: Profile,
-  name: 'Profile',
+  module: ProfileScreen,
+  name: 'ProfileScreen',
   options: ({ navigation }) => ({
     headerLeft: null,
     headerTitle: null,
