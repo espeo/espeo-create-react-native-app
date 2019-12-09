@@ -8,7 +8,6 @@ module.exports = {
         root: './src',
         alias: {
           styles: './src/styles',
-          translations: './src/translations',
           modules: './src/modules',
           assets: './src/assets',
         },

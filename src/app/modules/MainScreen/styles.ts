@@ -1,19 +1,9 @@
 import { styled } from '../../styles/themes/defaultTheme';
+import { Text } from '../../styles/components/text';
+import { CenterWrapper } from '../../styles/components/containers';
 
-export const MainWrapper = styled.View`
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-`;
+export const MainWrapper = styled(CenterWrapper)``;
 
-export const MainTitle = styled.Text`
-  font-family: Georgia;
-  font-size: 18;
-  font-weight: bold;
+export const MainTitle = styled(Text)`
   margin-bottom: 10;
-`;
-
-export const AppWrapper = styled.View`
-  flex-grow: 1;
 `;
