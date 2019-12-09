@@ -15,12 +15,12 @@
     "strictBindCallApply": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "jsx": "react",
+    "jsx": "react-native",
     "jsxFactory": "React.createElement",
     "baseUrl": "./src",
     "paths": {
       "@core/*": ["app/*"],
-      "@modules": ["modules/*"],
+      "@modules/*": ["modules/*"],
       "@assets/*": ["assets/*"],
       "@styles/*": ["app/styles/*"]
     },
