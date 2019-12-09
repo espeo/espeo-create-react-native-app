@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { navigationStructure } from './app/modules';
@@ -11,8 +11,8 @@ const AppNavigator = createStackNavigator(navigationStructure);
 
 const AppContainer = createAppContainer(AppNavigator);
 
-export default class App extends PureComponent {
-  public render() {
+const App = () => {
+  {
     return (
       <ThemeProvider theme={defaultTheme}>
         <AppWrapper>
@@ -21,4 +21,6 @@ export default class App extends PureComponent {
       </ThemeProvider>
     );
   }
-}
+};
+
+export default App;

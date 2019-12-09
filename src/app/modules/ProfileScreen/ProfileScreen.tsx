@@ -1,12 +1,9 @@
 import React, { PureComponent } from 'react';
 import { Button } from 'react-native';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { ProfileWrapper, ProfileTitle } from './styles';
 
-interface IProps {
-  navigation: any;
-}
-
-class ProfileScreen extends PureComponent<IProps> {
+class ProfileScreen extends PureComponent<NavigationStackScreenProps> {
   handleBack = () => {
     this.props.navigation.goBack();
   };

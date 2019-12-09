@@ -18,12 +18,6 @@
     "jsx": "react-native",
     "jsxFactory": "React.createElement",
     "baseUrl": "./src",
-    "paths": {
-      "@core/*": ["app/*"],
-      "@modules/*": ["modules/*"],
-      "@assets/*": ["assets/*"],
-      "@styles/*": ["app/styles/*"]
-    },
     "typeRoots": ["node_modules/@types"],
     "lib": ["dom", "esnext"]
   },
