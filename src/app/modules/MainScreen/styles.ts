@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+// import styled from 'styled-components';
+import { styled } from '../../styles/themes/defaultTheme';
 
 export const MainWrapper = styled.View`
   align-items: center;

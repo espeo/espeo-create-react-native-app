@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
-export const AppWrapper = styled.View`
+export const AppWrapper = styled.View `
   flex-grow: 1;
 `;

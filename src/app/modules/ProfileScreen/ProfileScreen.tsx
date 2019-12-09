@@ -1,9 +1,12 @@
 import React, { PureComponent } from 'react';
 import { Button } from 'react-native';
-import { ProfileWrapper, ProfileTitle } from './ProfileScreen.styles';
-import Modules from '../index';
+import { ProfileWrapper, ProfileTitle } from './styles';
 
-class ProfileScreen extends PureComponent {
+interface IProps {
+  navigation: any;
+}
+
+class ProfileScreen extends PureComponent<IProps> {
   handleBack = () => {
     this.props.navigation.goBack();
   };
