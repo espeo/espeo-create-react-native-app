@@ -14,3 +14,7 @@ export const MainTitle = styled.Text`
   font-weight: bold;
   margin-bottom: 10;
 `;
+
+export const AppWrapper = styled.View`
+  flex-grow: 1;
+`;
