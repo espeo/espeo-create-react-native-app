@@ -3,13 +3,13 @@ module.exports = {
   plugins: [
     ['@babel/plugin-proposal-decorators', { legacy: true }],
     [
-      require.resolve('babel-plugin-module-resolver'),
+      'module-resolver',
       {
-        root: './src',
+        root: ['./src'],
         alias: {
-          styles: './src/styles',
-          modules: './src/modules',
-          assets: './src/assets',
+          '@styles': './src/app/styles',
+          '@modules': './src/app/modules',
+          '@assets': './src/app/assets',
         },
       },
     ],

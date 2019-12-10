@@ -17,9 +17,15 @@
     "experimentalDecorators": true,
     "jsx": "react-native",
     "jsxFactory": "React.createElement",
-    "baseUrl": "./src",
     "typeRoots": ["node_modules/@types"],
-    "lib": ["dom", "esnext"]
+    "lib": ["dom", "esnext"],
+    "baseUrl": "./src",
+    "paths": {
+      "@core/*": ["app/*"],
+      "@styles/*": ["app/styles/*"],
+      "@modules/*": ["app/modules/*"],
+      "@assets/*": ["app/assets/*"]
+    }
   },
   "files": ["src/App.tsx"],
   "exclude": ["node_modules", "dist", "**/*.spec.ts"]
