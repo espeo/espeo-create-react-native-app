@@ -21,13 +21,14 @@ DerivedData
 *.ipa
 *.xcuserstate
 
-# Android/IntelliJ
+# Android/IntelliJ/ Vscode
 #
 build/
 .idea
 .gradle
 local.properties
 *.iml
+.vscode
 
 # node.js
 #
