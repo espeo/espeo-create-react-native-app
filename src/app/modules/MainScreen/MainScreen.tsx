@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react';
 import { Button } from 'react-native';
 import { NavigationStackScreenProps } from 'react-navigation-stack';
-import { injectIntl, InjectedIntlProps } from 'react-intl';
+import { injectIntl, WrappedComponentProps } from 'react-intl';
 import { MainWrapper, MainTitle } from './styles';
 import Modules from '../index';
 
-type MainScreenProps = InjectedIntlProps & NavigationStackScreenProps;
+type MainScreenProps = WrappedComponentProps & NavigationStackScreenProps;
 
 class MainScreen extends PureComponent<MainScreenProps> {
   handleToSecondScreen = () => {

@@ -3,6 +3,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { AppWrapper } from './app/styles/components/containers';
 import { ThemeProvider } from 'styled-components';
+
 import { IntlProvider } from 'react-intl';
 
 import { navigationStructure } from './app/modules';
