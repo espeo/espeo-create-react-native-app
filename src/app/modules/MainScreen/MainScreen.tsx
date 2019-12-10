@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
-import { MainWrapper, MainTitle } from './MainScreen.styles';
 import { Button } from 'react-native';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
+import { MainWrapper, MainTitle } from './styles';
 import Modules from '../index';
 
-class MainScreen extends PureComponent {
+class MainScreen extends PureComponent<NavigationStackScreenProps> {
   handleToSecondScreen = () => {
     this.props.navigation.navigate(Modules.ProfileScreenModule.name);
   };

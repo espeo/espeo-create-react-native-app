@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import { Button } from 'react-native';
-import { ProfileWrapper, ProfileTitle } from './ProfileScreen.styles';
-import Modules from '../index';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
+import { ProfileWrapper, ProfileTitle } from './styles';
 
-class ProfileScreen extends PureComponent {
+class ProfileScreen extends PureComponent<NavigationStackScreenProps> {
   handleBack = () => {
     this.props.navigation.goBack();
   };

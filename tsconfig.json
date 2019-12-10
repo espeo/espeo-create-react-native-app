@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "target": "es6",
+    "module": "esNext",
+    "outDir": "./dist",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictBindCallApply": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "jsx": "react-native",
+    "jsxFactory": "React.createElement",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["dom", "esnext"],
+    "baseUrl": "./src",
+    "paths": {
+      "@core/*": ["app/*"],
+      "@styles/*": ["app/styles/*"],
+      "@modules/*": ["app/modules/*"],
+      "@assets/*": ["app/assets/*"]
+    }
+  },
+  "files": ["src/App.tsx"],
+  "exclude": ["node_modules", "dist", "**/*.spec.ts"]
+}
