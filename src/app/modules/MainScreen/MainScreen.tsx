@@ -1,21 +1,28 @@
 import React, { PureComponent } from 'react';
 import { Button } from 'react-native';
 import { NavigationStackScreenProps } from 'react-navigation-stack';
+import { injectIntl, WrappedComponentProps } from 'react-intl';
 import { MainWrapper, MainTitle } from './styles';
 import Modules from '../index';
 
-class MainScreen extends PureComponent<NavigationStackScreenProps> {
+type MainScreenProps = WrappedComponentProps & NavigationStackScreenProps;
+
+class MainScreen extends PureComponent<MainScreenProps> {
   handleToSecondScreen = () => {
     this.props.navigation.navigate(Modules.ProfileScreenModule.name);
   };
-  render() {
+  public render() {
+    const { intl } = this.props;
     return (
       <MainWrapper>
-        <MainTitle>Espeo Create React Native App</MainTitle>
-        <Button title="Next page" onPress={this.handleToSecondScreen} />
+        <MainTitle>{intl.formatMessage({ id: 'main.title' })}</MainTitle>
+        <Button
+          title={intl.formatMessage({ id: 'main.button' })}
+          onPress={this.handleToSecondScreen}
+        />
       </MainWrapper>
     );
   }
 }
 
-export default MainScreen;
+export default injectIntl(MainScreen);
