@@ -17,7 +17,6 @@ const translationsEn = require('@assets/i18n/en');
 
 interface Translations {
   en: any;
-  [key: string]: any;
 }
 
 const locale = 'en';
