@@ -1,7 +1,27 @@
 {
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
   "root": true,
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "react-native",
+    "import",
+    "jest",
+    "prettier"
+  ],
   "extends": ["@react-native-community", "plugin:prettier/recommended"],
-  "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": "error"
   }
