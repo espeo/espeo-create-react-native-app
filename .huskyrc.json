@@ -1,7 +1,5 @@
 {
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged && yarn lint"
-    }
+  "hooks": {
+    "pre-commit": "pretty-quick --staged && yarn lint"
   }
 }
