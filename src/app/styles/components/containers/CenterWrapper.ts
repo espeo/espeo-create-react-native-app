@@ -1,4 +1,4 @@
-import { styled } from '../../themes/defaultTheme';
+import { styled } from '@styles/themes';
 
 export const CenterWrapper = styled.View`
   align-items: center;

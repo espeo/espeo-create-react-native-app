@@ -10,6 +10,7 @@ class ProfileScreen extends PureComponent<ProfileProps> {
   handleBack = () => {
     this.props.navigation.goBack();
   };
+
   render() {
     const { intl } = this.props;
     return (

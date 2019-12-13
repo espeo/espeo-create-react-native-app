@@ -13,7 +13,7 @@
     "release-android:prod": "cd android && ENVFILE=.env.production ./gradlew assembleProdRelease",
     "test": "jest",
     "prettier:write": "npx prettier --write **/*.{js,jsx,ts,tsx,json} && npx prettier --write *.{js,jsx,ts,tsx,json}",
-    "lint": "tsc --noEmit && eslint --ext .js,.jsx,.ts,.tsx ./"
+    "lint": "eslint --config ./.eslintrc.json 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
     "@babel/plugin-proposal-decorators": "^7.7.4",

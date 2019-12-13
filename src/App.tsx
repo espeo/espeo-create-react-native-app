@@ -1,13 +1,12 @@
 import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { AppWrapper } from './app/styles/components/containers';
-import { ThemeProvider } from 'styled-components';
-
 import { IntlProvider } from 'react-intl';
+import { ThemeProvider } from 'styled-components';
+import { defaultTheme } from '@styles/themes/defaultTheme';
+import { AppWrapper } from './app/styles/components/containers';
 
 import { navigationStructure } from './app/modules';
-import { defaultTheme } from './app/styles/themes/defaultTheme';
 
 const AppNavigator = createStackNavigator(navigationStructure);
 

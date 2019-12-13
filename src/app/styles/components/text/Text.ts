@@ -1,4 +1,4 @@
-import { styled } from '../../../styles/themes/defaultTheme';
+import { styled } from '@styles/themes';
 
 export const Text = styled.Text`
   font-family: Georgia;
