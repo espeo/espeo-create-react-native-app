@@ -11,6 +11,7 @@ class MainScreen extends PureComponent<MainScreenProps> {
   handleToSecondScreen = () => {
     this.props.navigation.navigate(Modules.ProfileScreenModule.name);
   };
+
   public render() {
     const { intl } = this.props;
     return (

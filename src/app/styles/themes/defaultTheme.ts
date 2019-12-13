@@ -1,5 +1,6 @@
-import baseStyled from 'styled-components/native';
-import { ReactNativeStyledInterface } from 'styled-components/native';
+import baseStyled, {
+  ReactNativeStyledInterface,
+} from 'styled-components/native';
 
 export const defaultTheme = {
   colors: {
