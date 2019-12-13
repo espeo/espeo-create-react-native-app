@@ -1,12 +1,11 @@
-import { NavigationParams } from 'react-navigation';
 import ProfileScreen from './ProfileScreen';
 
 export default {
   module: ProfileScreen,
   name: 'ProfileScreen',
-  options: ({ navigation }: NavigationParams) => ({
+  options: {
     headerLeft: null,
     headerTitle: null,
     headerRight: null,
-  }),
+  },
 };
