@@ -1,6 +1,7 @@
 import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+// import { Provider } from 'react-redux';
 import { IntlProvider } from 'react-intl';
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from '@styles/themes/defaultTheme';
