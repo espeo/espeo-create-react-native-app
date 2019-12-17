@@ -24,7 +24,8 @@
       "@core/*": ["app/*"],
       "@styles/*": ["app/styles/*"],
       "@modules/*": ["app/modules/*"],
-      "@assets/*": ["app/assets/*"]
+      "@assets/*": ["app/assets/*"],
+      "@services/*": ["app/services/*"]
     }
   },
   "files": ["src/App.tsx"],
