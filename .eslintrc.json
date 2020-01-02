@@ -46,7 +46,8 @@
           ["@core", "./src/app"],
           ["@assets", "./src/app/assets"],
           ["@modules", "./src/app/modules"],
-          ["@styles", "./src/app/styles"]
+          ["@styles", "./src/app/styles"],
+          ["@services", "./src/app/services"]
         ],
         "extensions": [".ts", ".tsx", ".json", ".js"]
       }
