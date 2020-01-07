@@ -1,5 +1,5 @@
-import MainScreenModule from './MainScreen';
-import ProfileScreenModule from './ProfileScreen';
+import { MainScreenModule } from './MainScreen';
+import { ProfileScreenModule } from './ProfileScreen';
 
 import { NavigationStructureTypes } from '../shared/types/navigation';
 

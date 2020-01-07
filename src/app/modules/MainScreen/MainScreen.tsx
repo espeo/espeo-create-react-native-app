@@ -1,31 +1,24 @@
 import React, { PureComponent } from 'react';
-import { compose, bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+// import { compose, bindActionCreators } from 'redux';
+// import { connect } from 'react-redux';
 import { Button, Text } from 'react-native';
 import { NavigationStackScreenProps } from 'react-navigation-stack';
-import { injectIntl, WrappedComponentProps } from 'react-intl';
+// import { injectIntl, WrappedComponentProps } from 'react-intl';
+import { WrappedComponentProps } from 'react-intl';
+
 import { MainWrapper, MainTitle } from './components/Main.styles';
 import Modules from '../index';
-import {
-  incrementValue,
-  decrementValue,
-  incrementAsyncValue,
-} from './store/actions';
 
-interface DispatchProps {
-  decrementValueAge: any;
-  incrementValueAge: any;
-  incrementAsyncValueAge: any;
-}
-
-interface StateProps {
+interface OwnProps {
+  decrementValue: any;
+  incrementValue: any;
+  incrementAsyncValue: any;
   value: number;
 }
 
 type MainScreenProps = WrappedComponentProps &
   NavigationStackScreenProps &
-  DispatchProps &
-  StateProps;
+  OwnProps;
 
 class MainScreen extends PureComponent<MainScreenProps> {
   handleToSecondScreen = () => {
@@ -33,18 +26,18 @@ class MainScreen extends PureComponent<MainScreenProps> {
   };
 
   private handleIncrement = () => {
-    const { incrementValueAge } = this.props;
-    incrementValueAge();
+    const { incrementValue } = this.props;
+    incrementValue();
   };
 
   private handleDecrement = () => {
-    const { decrementValueAge } = this.props;
-    decrementValueAge();
+    const { decrementValue } = this.props;
+    decrementValue();
   };
 
   private handleDelay = () => {
-    const { incrementAsyncValueAge } = this.props;
-    incrementAsyncValueAge();
+    const { incrementAsyncValue } = this.props;
+    incrementAsyncValue();
   };
 
   public render() {
@@ -65,24 +58,4 @@ class MainScreen extends PureComponent<MainScreenProps> {
   }
 }
 
-const mapStateToProps = (state: any): any => {
-  return {
-    value: state.ageValue.value,
-  };
-};
-
-const mapDispatchToProps = (dispatch: any): any => {
-  return bindActionCreators(
-    {
-      incrementValueAge: incrementValue,
-      decrementValueAge: decrementValue,
-      incrementAsyncValueAge: incrementAsyncValue,
-    },
-    dispatch,
-  );
-};
-
-export default compose(
-  injectIntl,
-  connect(mapStateToProps, mapDispatchToProps),
-)(MainScreen);
+export default MainScreen;
