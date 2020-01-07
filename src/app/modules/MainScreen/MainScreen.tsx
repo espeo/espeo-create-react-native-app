@@ -1,9 +1,6 @@
 import React, { PureComponent } from 'react';
-// import { compose, bindActionCreators } from 'redux';
-// import { connect } from 'react-redux';
 import { Button, Text } from 'react-native';
 import { NavigationStackScreenProps } from 'react-navigation-stack';
-// import { injectIntl, WrappedComponentProps } from 'react-intl';
 import { WrappedComponentProps } from 'react-intl';
 
 import { MainWrapper, MainTitle } from './components/Main.styles';

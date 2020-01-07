@@ -1,6 +1,8 @@
-import { compose, bindActionCreators } from 'redux';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { injectIntl } from 'react-intl';
+import { NavigationScreenComponent } from 'react-navigation';
+import { NavigationStackOptions } from 'react-navigation-stack';
 
 import {
   incrementValue,
@@ -16,15 +18,10 @@ const mapStateToProps = (state: any): any => {
   };
 };
 
-const mapDispatchToProps = (dispatch: any): any => {
-  return bindActionCreators(
-    {
-      incrementValue,
-      decrementValue,
-      incrementAsyncValue,
-    },
-    dispatch,
-  );
+const mapDispatchToProps: any = {
+  incrementValue,
+  decrementValue,
+  incrementAsyncValue,
 };
 
 const MainScreenComposed = compose(
@@ -32,8 +29,14 @@ const MainScreenComposed = compose(
   connect(mapStateToProps, mapDispatchToProps),
 )(MainScreen);
 
-export const MainScreenModule = {
-  module: MainScreenComposed,
+interface ScreenPropsConfig {
+  options: NavigationStackOptions;
+  module: NavigationScreenComponent<any, any>;
+  name: string;
+}
+
+export const MainScreenModule: ScreenPropsConfig = {
+  module: MainScreenComposed as NavigationScreenComponent<any, any>,
   name: 'MainScreen',
   options: {
     headerLeft: null,
