@@ -6,3 +6,10 @@ export interface ScreenPropsConfig {
   module: NavigationScreenComponent<any, any>;
   name: string;
 }
+
+export interface NavigationStructureProps {
+  [key: string]: {
+    screen: NavigationScreenComponent<any, any>;
+    navigationOptions: NavigationStackOptions;
+  };
+}

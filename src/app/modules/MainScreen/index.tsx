@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { injectIntl } from 'react-intl';
 import { NavigationScreenComponent } from 'react-navigation';
 import { ScreenPropsConfig } from '@common/types/navigation';
+// import { MainScreenState } from './namespace';
 
 import {
   incrementValue,

@@ -1,11 +1,8 @@
+import { initialState } from '../initialState';
 import { MainScreenTypes, MainScreenActions } from '../actions';
 
-const inistalState = {
-  value: 0,
-};
-
 export const mainScreenReducer = (
-  state = inistalState,
+  state = initialState,
   action: MainScreenActions,
 ) => {
   switch (action.type) {
