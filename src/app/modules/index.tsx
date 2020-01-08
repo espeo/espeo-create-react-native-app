@@ -1,9 +1,7 @@
 import { MainScreenModule } from './MainScreen';
 import { ProfileScreenModule } from './ProfileScreen';
 
-import { NavigationStructureTypes } from '../shared/types/navigation';
-
-export const navigationStructure: NavigationStructureTypes = {
+export const navigationStructure = {
   [MainScreenModule.name]: {
     screen: MainScreenModule.module,
     navigationOptions: MainScreenModule.options,

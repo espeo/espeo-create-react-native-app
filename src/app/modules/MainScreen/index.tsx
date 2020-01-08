@@ -1,8 +1,8 @@
-import { compose } from 'redux';
+import { compose, bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { injectIntl } from 'react-intl';
 import { NavigationScreenComponent } from 'react-navigation';
-import { NavigationStackOptions } from 'react-navigation-stack';
+import { ScreenPropsConfig } from '@common/types/navigation';
 
 import {
   incrementValue,
@@ -12,31 +12,39 @@ import {
 
 import MainScreen from './MainScreen';
 
-const mapStateToProps = (state: any): any => {
+export interface DispatchProps {
+  incrementValue: () => void;
+  decrementValue: () => void;
+  incrementAsyncValue: () => void;
+}
+
+export interface StateProps {
+  value: number;
+}
+
+const mapStateToProps = (state: any): StateProps => {
   return {
     value: state.ageValue.value,
   };
 };
 
-const mapDispatchToProps: any = {
-  incrementValue,
-  decrementValue,
-  incrementAsyncValue,
-};
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps =>
+  bindActionCreators(
+    {
+      incrementValue,
+      decrementValue,
+      incrementAsyncValue,
+    },
+    dispatch,
+  );
 
-const MainScreenComposed = compose(
+const MainScreenComposed = compose<NavigationScreenComponent<any, any>>(
   injectIntl,
-  connect(mapStateToProps, mapDispatchToProps),
+  connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps),
 )(MainScreen);
 
-interface ScreenPropsConfig {
-  options: NavigationStackOptions;
-  module: NavigationScreenComponent<any, any>;
-  name: string;
-}
-
 export const MainScreenModule: ScreenPropsConfig = {
-  module: MainScreenComposed as NavigationScreenComponent<any, any>,
+  module: MainScreenComposed,
   name: 'MainScreen',
   options: {
     headerLeft: null,

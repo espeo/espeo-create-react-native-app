@@ -5,11 +5,11 @@ import { Provider } from 'react-redux';
 import { IntlProvider } from 'react-intl';
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from '@styles/themes/defaultTheme';
-import { AppWrapper } from './app/styles/components/containers';
+import { AppWrapper } from '@styles/components/containers';
 
-import { navigationStructure } from './app/modules';
+import { navigationStructure } from '@modules/index';
 
-import { rootStore } from './app/store/index';
+import { rootStore } from './app/store';
 
 const AppNavigator = createStackNavigator(navigationStructure);
 

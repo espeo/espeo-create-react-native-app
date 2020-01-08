@@ -5,17 +5,12 @@ import { WrappedComponentProps } from 'react-intl';
 
 import { MainWrapper, MainTitle } from './components/Main.styles';
 import Modules from '../index';
-
-interface OwnProps {
-  decrementValue: any;
-  incrementValue: any;
-  incrementAsyncValue: any;
-  value: number;
-}
+import { StateProps, DispatchProps } from './index';
 
 type MainScreenProps = WrappedComponentProps &
   NavigationStackScreenProps &
-  OwnProps;
+  StateProps &
+  DispatchProps;
 
 class MainScreen extends PureComponent<MainScreenProps> {
   handleToSecondScreen = () => {
