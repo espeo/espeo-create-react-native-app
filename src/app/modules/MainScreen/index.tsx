@@ -23,9 +23,13 @@ export interface StateProps {
   value: number;
 }
 
-const mapStateToProps = (state: MainScreenState): StateProps => {
+interface ReducerType {
+  mainScreenReducer: MainScreenState;
+}
+
+const mapStateToProps = (state: ReducerType): StateProps => {
   return {
-    value: state.ageValue.value,
+    value: state.mainScreenReducer.value,
   };
 };
 
@@ -41,7 +45,10 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps =>
 
 const MainScreenComposed = compose<NavigationScreenComponent<any, any>>(
   injectIntl,
-  connect<any, any>(mapStateToProps, mapDispatchToProps),
+  connect<StateProps, DispatchProps, any, ReducerType>(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
 )(MainScreen);
 
 export const MainScreenModule: ScreenPropsConfig = {
