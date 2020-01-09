@@ -1,4 +1,4 @@
-import { ReturnType } from '../../../../namespace';
+import { ReturnType } from '@namespace/index';
 
 export enum MainScreenTypes {
   INCREMENT = 'INCREMENT',
