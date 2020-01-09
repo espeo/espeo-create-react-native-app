@@ -1,12 +1,15 @@
 import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import { Provider } from 'react-redux';
 import { IntlProvider } from 'react-intl';
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from '@styles/themes/defaultTheme';
-import { AppWrapper } from './app/styles/components/containers';
+import { AppWrapper } from '@styles/components/containers';
 
-import { navigationStructure } from './app/modules';
+import { navigationStructure } from '@modules/index';
+
+import { rootStore } from './app/store';
 
 const AppNavigator = createStackNavigator(navigationStructure);
 
@@ -26,13 +29,15 @@ const translations: Translations = {
 
 const App = () => {
   return (
-    <IntlProvider locale={locale} messages={translations[locale]}>
-      <ThemeProvider theme={defaultTheme}>
-        <AppWrapper>
-          <AppContainer />
-        </AppWrapper>
-      </ThemeProvider>
-    </IntlProvider>
+    <Provider store={rootStore}>
+      <IntlProvider locale={locale} messages={translations[locale]}>
+        <ThemeProvider theme={defaultTheme}>
+          <AppWrapper>
+            <AppContainer />
+          </AppWrapper>
+        </ThemeProvider>
+      </IntlProvider>
+    </Provider>
   );
 };
 

@@ -25,7 +25,10 @@
       "@styles/*": ["app/styles/*"],
       "@modules/*": ["app/modules/*"],
       "@assets/*": ["app/assets/*"],
-      "@services/*": ["app/services/*"]
+      "@services/*": ["app/services/*"],
+      "@namespace/*": ["app/namespace/*"],
+      "@store/*": ["app/store/*"],
+      "@common/*": ["app/common/*"]
     }
   },
   "files": ["src/App.tsx"],

@@ -1,6 +1,6 @@
 import ProfileScreen from './ProfileScreen';
 
-export default {
+export const ProfileScreenModule = {
   module: ProfileScreen,
   name: 'ProfileScreen',
   options: {

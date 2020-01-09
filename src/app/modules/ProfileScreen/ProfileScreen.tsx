@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { Button } from 'react-native';
 import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { injectIntl, WrappedComponentProps } from 'react-intl';
-import { ProfileWrapper, ProfileTitle } from './styles';
+import { ProfileWrapper, ProfileTitle } from './components/Profile.styles';
 
 type ProfileProps = WrappedComponentProps & NavigationStackScreenProps;
 

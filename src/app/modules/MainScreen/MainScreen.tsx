@@ -1,19 +1,39 @@
 import React, { PureComponent } from 'react';
-import { Button } from 'react-native';
+import { Button, Text } from 'react-native';
 import { NavigationStackScreenProps } from 'react-navigation-stack';
-import { injectIntl, WrappedComponentProps } from 'react-intl';
-import { MainWrapper, MainTitle } from './styles';
-import Modules from '../index';
+import { WrappedComponentProps } from 'react-intl';
 
-type MainScreenProps = WrappedComponentProps & NavigationStackScreenProps;
+import { MainWrapper, MainTitle } from './components/Main.styles';
+import Modules from '../index';
+import { StateProps, DispatchProps } from './index';
+
+type MainScreenProps = WrappedComponentProps &
+  NavigationStackScreenProps &
+  StateProps &
+  DispatchProps;
 
 class MainScreen extends PureComponent<MainScreenProps> {
   handleToSecondScreen = () => {
     this.props.navigation.navigate(Modules.ProfileScreenModule.name);
   };
 
+  private handleIncrement = () => {
+    const { incrementValue } = this.props;
+    incrementValue();
+  };
+
+  private handleDecrement = () => {
+    const { decrementValue } = this.props;
+    decrementValue();
+  };
+
+  private handleDelay = () => {
+    const { incrementAsyncValue } = this.props;
+    incrementAsyncValue();
+  };
+
   public render() {
-    const { intl } = this.props;
+    const { intl, value } = this.props;
     return (
       <MainWrapper>
         <MainTitle>{intl.formatMessage({ id: 'main.title' })}</MainTitle>
@@ -21,9 +41,13 @@ class MainScreen extends PureComponent<MainScreenProps> {
           title={intl.formatMessage({ id: 'main.button' })}
           onPress={this.handleToSecondScreen}
         />
+        <Button title="+" onPress={this.handleIncrement} />
+        <Text>{value}</Text>
+        <Button title="-" onPress={this.handleDecrement} />
+        <Button title="+ delay" onPress={this.handleDelay} />
       </MainWrapper>
     );
   }
 }
 
-export default injectIntl(MainScreen);
+export default MainScreen;

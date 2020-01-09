@@ -47,7 +47,9 @@
           ["@assets", "./src/app/assets"],
           ["@modules", "./src/app/modules"],
           ["@styles", "./src/app/styles"],
-          ["@services", "./src/app/services"]
+          ["@services", "./src/app/services"],
+          ["@common", "./src/app/common"],
+          ["@namespace", "./src/app/namespace"]
         ],
         "extensions": [".ts", ".tsx", ".json", ".js"]
       }
