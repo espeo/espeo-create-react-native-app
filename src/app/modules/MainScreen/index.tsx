@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { injectIntl } from 'react-intl';
 import { NavigationScreenComponent } from 'react-navigation';
 import { ScreenPropsConfig } from '@common/types/navigation';
-// import { MainScreenState } from './namespace';
+import { MainScreenState } from './namespace';
 
 import {
   incrementValue,
@@ -23,7 +23,7 @@ export interface StateProps {
   value: number;
 }
 
-const mapStateToProps = (state: any): StateProps => {
+const mapStateToProps = (state: MainScreenState): StateProps => {
   return {
     value: state.ageValue.value,
   };
@@ -41,7 +41,7 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps =>
 
 const MainScreenComposed = compose<NavigationScreenComponent<any, any>>(
   injectIntl,
-  connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps),
+  connect<any, any>(mapStateToProps, mapDispatchToProps),
 )(MainScreen);
 
 export const MainScreenModule: ScreenPropsConfig = {

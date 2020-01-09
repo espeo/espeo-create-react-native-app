@@ -1,3 +1,5 @@
 export interface MainScreenState {
-  value: number;
+  ageValue: {
+    value: number;
+  };
 }
