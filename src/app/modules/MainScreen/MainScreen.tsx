@@ -14,7 +14,8 @@ type MainScreenProps = WrappedComponentProps &
 
 class MainScreen extends PureComponent<MainScreenProps> {
   handleToSecondScreen = () => {
-    this.props.navigation.navigate(Modules.ProfileScreenModule.name);
+    const { navigate } = this.props.navigation;
+    navigate(Modules.ProfileScreenModule.name);
   };
 
   private handleIncrement = () => {
@@ -28,8 +29,8 @@ class MainScreen extends PureComponent<MainScreenProps> {
   };
 
   private handleDelay = () => {
-    const { incrementAsyncValue } = this.props;
-    incrementAsyncValue();
+    const { asyncIncrementValue } = this.props;
+    asyncIncrementValue();
   };
 
   public render() {

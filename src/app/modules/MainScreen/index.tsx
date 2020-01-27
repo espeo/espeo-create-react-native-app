@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { injectIntl } from 'react-intl';
 import { NavigationScreenComponent } from 'react-navigation';
 import { ScreenPropsConfig } from '@common/types/navigation';
-import { MainScreenState } from './namespace';
+import { MainScreenState } from './store/reducers';
 
 import {
   incrementValue,
   decrementValue,
-  incrementAsyncValue,
+  asyncIncrementValue,
 } from './store/actions';
 
 import MainScreen from './MainScreen';
@@ -16,7 +16,7 @@ import MainScreen from './MainScreen';
 export interface DispatchProps {
   incrementValue: () => void;
   decrementValue: () => void;
-  incrementAsyncValue: () => void;
+  asyncIncrementValue: () => void;
 }
 
 export interface StateProps {
@@ -38,7 +38,7 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps =>
     {
       incrementValue,
       decrementValue,
-      incrementAsyncValue,
+      asyncIncrementValue,
     },
     dispatch,
   );

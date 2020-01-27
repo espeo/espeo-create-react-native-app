@@ -8,7 +8,8 @@ type ProfileProps = WrappedComponentProps & NavigationStackScreenProps;
 
 class ProfileScreen extends PureComponent<ProfileProps> {
   handleBack = () => {
-    this.props.navigation.goBack();
+    const { goBack } = this.props.navigation;
+    goBack();
   };
 
   render() {
