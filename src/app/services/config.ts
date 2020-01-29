@@ -1,8 +1,10 @@
 import axios from 'axios';
-import { ErrorCodes } from '../constants/constants';
-import asyncStorageService from './async-storage/index';
+// eslint-disable-next-line
+// @ts-ignore
+import { API_URL as baseURL } from 'react-native-dotenv';
+import { ErrorCodes } from '../constants';
+import asyncStorageService from './async-storage';
 
-const baseURL = process.env.API_URL;
 class ApiService {
   public request: any;
 
@@ -37,7 +39,6 @@ class ApiService {
 
   public get<T>(url: string, params?: any, options?: {}): Promise<T> {
     const config = { params, ...options };
-
     return this.request.get(url, config);
   }
 

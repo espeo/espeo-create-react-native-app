@@ -2,5 +2,15 @@
   "main.title": "Espeo Create React Native App",
   "main.button": "Next page",
   "profile.title": "Profile",
-  "profile.button": "Back"
+  "profile.button": "Back",
+  "picker.topic.sport": "sport",
+  "picker.topic.fashion": "fashion",
+  "picker.topic.design": "design",
+  "picker.topic.literature": "literature",
+  "picker.time.month": "month",
+  "picker.time.today": "today",
+  "picker.time.week": "week",
+  "picker.sort.popularity": "popularity",
+  "picker.sort.writtenIn": "writtenIn",
+  "picker.sort.publishedAt": "publishedAt"
 }

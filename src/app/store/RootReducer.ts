@@ -1,6 +1,6 @@
 import { combineReducers, Reducer } from 'redux';
 
-import { mainScreenReducer } from '@modules/MainScreen/store/reducers/index';
+import { mainScreenReducer } from '@modules/MainArticlesScreen/store/reducers';
 
 const rootReducer: Reducer = combineReducers({
   mainScreenReducer,
