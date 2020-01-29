@@ -1,5 +1,8 @@
 import { put, takeLatest, all, fork, call } from 'redux-saga/effects';
-import { FiltersProps } from '@modules/MainArticlesScreen/namespace';
+import {
+  FiltersProps,
+  FetchArticlesArgs,
+} from '@modules/MainArticlesScreen/namespace';
 import { getArticlesService } from '@core/services';
 import {
   MainScreenTypes,
@@ -16,10 +19,7 @@ const getFilterProps = (payload: FiltersProps): FiltersProps => {
   };
 };
 
-function* getArticles(action: {
-  payload: { page: number; filters: FiltersProps };
-  type: string;
-}) {
+function* getArticles(action: { payload: FetchArticlesArgs; type: string }) {
   try {
     const { page } = action.payload;
     const { topic, sortBy, date } = getFilterProps(action.payload.filters);

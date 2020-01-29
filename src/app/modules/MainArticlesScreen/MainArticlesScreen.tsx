@@ -65,8 +65,14 @@ class MainScreen extends PureComponent<MainScreenProps> {
           title={intl.formatMessage({ id: 'main.button' })}
           onPress={this.handleToSecondScreen}
         />
-        <Button onPress={this.getArticles} title="get articles" />
-        <Button onPress={clearArticlesFilters} title="clear filters" />
+        <Button
+          onPress={this.getArticles}
+          title={intl.formatMessage({ id: 'picker.button.getArticles' })}
+        />
+        <Button
+          onPress={clearArticlesFilters}
+          title={intl.formatMessage({ id: 'picker.button.clear' })}
+        />
         <Picker
           selectedValue={topic}
           style={{ height: 50, width: 200 }}

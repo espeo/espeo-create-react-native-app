@@ -3,6 +3,8 @@
   "main.button": "Next page",
   "profile.title": "Profile",
   "profile.button": "Back",
+  "picker.button.getArticles": "Get Articles",
+  "picker.button.clear": "Clear Filters",
   "picker.topic.sport": "sport",
   "picker.topic.fashion": "fashion",
   "picker.topic.design": "design",

@@ -1,4 +1,5 @@
 import axios from 'axios';
+// linter disabled because of (hopefully temporary) incompatibility with Typescript - https://github.com/zetachang/react-native-dotenv/issues/76
 // eslint-disable-next-line
 // @ts-ignore
 import { API_URL as baseURL } from 'react-native-dotenv';

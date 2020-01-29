@@ -11,6 +11,7 @@ import {
   topicTypes,
   sortTypes,
   timeTypes,
+  FetchArticlesArgs,
 } from './namespace';
 import {
   fetchArticles,
@@ -19,13 +20,8 @@ import {
 } from './store/actions';
 import MainScreen from './MainArticlesScreen';
 
-interface FetchArgs {
-  page: number;
-  filters: FiltersProps;
-}
-
 export interface DispatchProps {
-  fetchArticles(fetchArgs: FetchArgs): void;
+  fetchArticles(fetchArgs: FetchArticlesArgs): void;
   filterArticles(filters: FiltersProps): void;
   clearArticlesFilters(): void;
 }

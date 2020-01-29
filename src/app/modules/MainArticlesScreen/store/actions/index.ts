@@ -38,4 +38,7 @@ export const clearArticlesFilters = () =>
 export type MainScreenActions =
   | ReturnType<typeof fetchArticles>
   | ReturnType<typeof fetchArticlesSuccess>
-  | ReturnType<typeof fetchArticlesFailed>;
+  | ReturnType<typeof fetchArticlesFailed>
+  | ReturnType<typeof reloadArticles>
+  | ReturnType<typeof filterArticles>
+  | ReturnType<typeof clearArticlesFilters>;

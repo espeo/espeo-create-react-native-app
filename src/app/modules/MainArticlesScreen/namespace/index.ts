@@ -52,3 +52,8 @@ export interface ArticleData {
   url: string;
   urlToImage: string;
 }
+
+export interface FetchArticlesArgs {
+  page: number;
+  filters: FiltersProps;
+}
