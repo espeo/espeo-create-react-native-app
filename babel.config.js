@@ -12,7 +12,7 @@ module.exports = {
         alias: {
           '@core': './src/app',
           '@styles': './src/app/styles',
-          '@modules': './src/app/modules',
+          '@pages': './src/app/pages',
           '@assets': './src/app/assets',
           '@services': './src/app/services',
           '@namespace': './src/app/namespace',

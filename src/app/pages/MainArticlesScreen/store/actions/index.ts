@@ -1,8 +1,5 @@
 import { ReturnType, reduxAsyncAction } from '@namespace/index';
-import {
-  FiltersProps,
-  ArticleData,
-} from '@modules/MainArticlesScreen/namespace';
+import { FiltersProps, ArticleData } from '@pages/MainArticlesScreen/namespace';
 
 export enum MainScreenTypes {
   FETCH_ARTICLES = 'FETCH_ARTICLES',
@@ -40,5 +37,4 @@ export type MainScreenActions =
   | ReturnType<typeof fetchArticlesSuccess>
   | ReturnType<typeof fetchArticlesFailed>
   | ReturnType<typeof reloadArticles>
-  | ReturnType<typeof filterArticles>
-  | ReturnType<typeof clearArticlesFilters>;
+  | ReturnType<typeof filterArticles>;

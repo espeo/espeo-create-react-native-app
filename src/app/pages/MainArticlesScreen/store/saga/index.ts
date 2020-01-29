@@ -2,7 +2,7 @@ import { put, takeLatest, all, fork, call } from 'redux-saga/effects';
 import {
   FiltersProps,
   FetchArticlesArgs,
-} from '@modules/MainArticlesScreen/namespace';
+} from '@pages/MainArticlesScreen/namespace';
 import { getArticlesService } from '@core/services';
 import {
   MainScreenTypes,

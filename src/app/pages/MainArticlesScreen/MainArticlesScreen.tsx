@@ -9,8 +9,8 @@ import {
   topicValues,
   timeValues,
   sortValues,
-} from '@modules/MainArticlesScreen/namespace';
-import Modules from '@modules/index';
+} from '@pages/MainArticlesScreen/namespace';
+import Modules from '@pages/index';
 import { StateProps, DispatchProps } from './index';
 import { MainWrapper, MainTitle } from './components/Main.styles';
 

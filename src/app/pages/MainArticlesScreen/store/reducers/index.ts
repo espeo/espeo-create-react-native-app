@@ -4,7 +4,7 @@ import {
   topicValues,
   sortValues,
   timeValues,
-} from '@modules/MainArticlesScreen/namespace';
+} from '@pages/MainArticlesScreen/namespace';
 import { MainScreenTypes, MainScreenActions } from '../actions';
 
 export const initialState: MainArticlesScreenState = {

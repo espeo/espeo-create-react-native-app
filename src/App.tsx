@@ -7,7 +7,7 @@ import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from '@styles/themes/defaultTheme';
 import { AppWrapper } from '@styles/components/containers';
 
-import { navigationStructure } from '@modules/index';
+import { navigationStructure } from '@pages/index';
 
 import { rootStore } from './app/store';
 
