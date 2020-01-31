@@ -2,44 +2,55 @@ import { compose, bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { injectIntl } from 'react-intl';
 import { NavigationScreenComponent } from 'react-navigation';
+
 import { ScreenPropsConfig } from '@common/types/navigation';
-import { MainScreenState } from './namespace';
-
 import {
-  incrementValue,
-  decrementValue,
-  incrementAsyncValue,
+  MainArticlesScreenState,
+  ArticleData,
+  FiltersProps,
+  topicTypes,
+  sortTypes,
+  timeTypes,
+  FetchArticlesArgs,
+} from './namespace';
+import {
+  fetchArticles,
+  filterArticles,
+  clearArticlesFilters,
 } from './store/actions';
-
-import MainScreen from './MainScreen';
+import MainScreen from './MainArticlesScreen';
 
 export interface DispatchProps {
-  incrementValue: () => void;
-  decrementValue: () => void;
-  incrementAsyncValue: () => void;
+  fetchArticles(fetchArgs: FetchArticlesArgs): void;
+  filterArticles(filters: FiltersProps): void;
+  clearArticlesFilters(): void;
 }
 
 export interface StateProps {
-  value: number;
+  data: Array<ArticleData>;
+  page: number;
+  topic: topicTypes;
+  sortBy: sortTypes;
+  date: timeTypes;
 }
 
 interface ReducerType {
-  mainScreenReducer: MainScreenState;
+  mainScreenReducer: MainArticlesScreenState;
 }
 
 const mapStateToProps = (state: ReducerType): StateProps => {
   return {
-    value: state.mainScreenReducer.value,
+    data: state.mainScreenReducer.data,
+    page: state.mainScreenReducer.page,
+    topic: state.mainScreenReducer.topic,
+    sortBy: state.mainScreenReducer.sortBy,
+    date: state.mainScreenReducer.date,
   };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps =>
   bindActionCreators(
-    {
-      incrementValue,
-      decrementValue,
-      incrementAsyncValue,
-    },
+    { fetchArticles, filterArticles, clearArticlesFilters },
     dispatch,
   );
 

@@ -1,16 +1,18 @@
+import AsyncStorage from '@react-native-community/async-storage';
+
 class AsyncStorageService {
   private readonly PREFIX: string = 'create-react-native-espeo-app';
 
   public get(key: string) {
-    return localStorage.getItem(`${this.PREFIX}-${key}`);
+    return AsyncStorage.getItem(`${this.PREFIX}-${key}`);
   }
 
   public set(key: string, value: string) {
-    localStorage.setItem(`${this.PREFIX}-${key}`, value);
+    AsyncStorage.setItem(`${this.PREFIX}-${key}`, value);
   }
 
   public remove(key: string) {
-    localStorage.removeItem(`${this.PREFIX}-${key}`);
+    AsyncStorage.removeItem(`${this.PREFIX}-${key}`);
   }
 }
 

@@ -1,5 +1,8 @@
 module.exports = {
-  presets: ['module:metro-react-native-babel-preset'],
+  presets: [
+    'module:metro-react-native-babel-preset',
+    'module:react-native-dotenv',
+  ],
   plugins: [
     ['@babel/plugin-proposal-decorators', { legacy: true }],
     [
@@ -7,9 +10,9 @@ module.exports = {
       {
         root: ['./src'],
         alias: {
-          '@core': './app',
+          '@core': './src/app',
           '@styles': './src/app/styles',
-          '@modules': './src/app/modules',
+          '@pages': './src/app/pages',
           '@assets': './src/app/assets',
           '@services': './src/app/services',
           '@namespace': './src/app/namespace',
