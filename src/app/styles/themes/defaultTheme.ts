@@ -3,19 +3,33 @@ import baseStyled, {
 } from 'styled-components/native';
 
 export const defaultTheme = {
+  colors: {
+    dark: '#222222',
+    grey: '#a8a9bc',
+    light: '#fefefe',
+    primary: '#e8ebf2',
+    secondary: '#502a37',
+  },
+  margin: {
+    small: '5px',
+    medium: '10px',
+    large: '15px',
+  },
   font: {
     size: {
-      medium: '15px',
+      small: '10px',
+      medium: '14px',
+      large: '18px',
     },
     weight: {
       bold: 'bold',
     },
   },
-  colors: {
-    dark: '#222',
-    light: '#fefefe',
-    primary: '#e8ebf2',
-    secondary: '#502a37',
+  padding: {
+    small: '5px',
+    medium: '10px',
+    large: '15px',
+    xlarge: '20px',
   },
 };
 

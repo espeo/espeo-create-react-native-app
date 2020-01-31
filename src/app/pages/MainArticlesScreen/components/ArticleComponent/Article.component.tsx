@@ -3,7 +3,8 @@ import { WrappedComponentProps } from 'react-intl';
 import dayjs from 'dayjs';
 
 import { ArticleData } from '@pages/MainArticlesScreen/namespace';
-import StyledButton from '@core/styles/components/buttons';
+import { fallbackImage } from '@core/constants';
+import { StyledButton } from '@core/styles/components';
 import {
   ArticleDescription,
   ArticleImage,
@@ -22,7 +23,6 @@ type MainScreenProps = WrappedComponentProps & OwnProps;
 class ArticleComponent extends PureComponent<MainScreenProps> {
   public render() {
     const { intl, article } = this.props;
-    const fallbackImage = 'https://via.placeholder.com/150';
     return (
       <ArticleWrapper>
         <ArticleImage
@@ -47,7 +47,7 @@ class ArticleComponent extends PureComponent<MainScreenProps> {
         <ArticleDescription>{article.description}</ArticleDescription>
         <StyledButton
           title={intl.formatMessage({ id: 'mainArticles.knowMore' })}
-          onPress={() => console.log('log')}
+          onPress={() => {}}
         />
       </ArticleWrapper>
     );

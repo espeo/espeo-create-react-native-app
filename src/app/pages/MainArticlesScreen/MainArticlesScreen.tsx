@@ -2,22 +2,15 @@ import React, { PureComponent } from 'react';
 import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { WrappedComponentProps } from 'react-intl';
 import { v1 } from 'uuid';
-
 import {
-  ArticleData,
   topicValues,
   timeValues,
   sortValues,
 } from '@pages/MainArticlesScreen/namespace';
 import Modules from '@pages/index';
-import StyledButton from '@styles/components/buttons';
+import { StyledButton } from '@core/styles/components';
 import { StateProps, DispatchProps } from './index';
-import {
-  MainWrapper,
-  ArticlesWrapper,
-  MainScrollView,
-} from './components/Main.styles';
-import { Filters, Article } from './components';
+import { Filters, Article, MainWrapper, ArticlesFlatList } from './components';
 
 type MainScreenProps = WrappedComponentProps &
   NavigationStackScreenProps &
@@ -65,24 +58,28 @@ class MainScreen extends PureComponent<MainScreenProps> {
     } = this.props;
     return (
       <MainWrapper>
-        <MainScrollView>
-          <Filters
-            topic={topic}
-            date={date}
-            sortBy={sortBy}
-            clearFilters={clearArticlesFilters}
-            handlePicker={this.handleFilterPicker}
-          />
-          <ArticlesWrapper>
-            {data.map((article: ArticleData) => (
-              <Article key={article.publishedAt + v1()} article={article} />
-            ))}
-          </ArticlesWrapper>
-          <StyledButton
-            title={intl.formatMessage({ id: 'main.button' })}
-            onPress={this.handleToSecondScreen}
-          />
-        </MainScrollView>
+        <ArticlesFlatList
+          data={data}
+          renderItem={({ item }) => <Article article={item} />}
+          initialNumToRender={5}
+          keyExtractor={() => v1()}
+          ListHeaderComponent={
+            <Filters
+              topic={topic}
+              date={date}
+              sortBy={sortBy}
+              clearFilters={clearArticlesFilters}
+              handlePicker={this.handleFilterPicker}
+            />
+          }
+          ListFooterComponent={
+            <StyledButton
+              title={intl.formatMessage({ id: 'main.button' })}
+              onPress={this.handleToSecondScreen}
+            />
+          }
+          centerContent
+        />
       </MainWrapper>
     );
   }

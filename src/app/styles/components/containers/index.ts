@@ -13,6 +13,6 @@ export const SectionWrapper = styled.View`
   height: 100%;
 `;
 
-export const AppWrapper = styled.View`
-  flex-grow: 1;
+export const AppWrapper = styled.SafeAreaView`
+  flex: 1;
 `;

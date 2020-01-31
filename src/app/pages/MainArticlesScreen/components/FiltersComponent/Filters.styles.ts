@@ -4,22 +4,18 @@ export const PickersWrapper = styled.View`
   background: ${props => props.theme.colors.primary};
   width: 100%;
   align-items: center;
-  padding: 20px 0;
+  padding: ${props => props.theme.padding.large};
 `;
 
 export const PickerWrapper = styled.View`
-  width: 90%;
+  width: 100%;
   border: 2px solid ${props => props.theme.colors.secondary};
   background-color: ${props => props.theme.colors.light};
   border-radius: 20;
-  margin: 5px 0;
-`;
-
-export const PickersButtonWrapper = styled.View`
-  width: 90%;
+  margin: ${props => props.theme.margin.small} 0;
 `;
 
 export const StyledPicker = styled.Picker`
   height: 40;
-  padding: 5px;
+  padding: ${props => props.theme.padding.small};
 `;
