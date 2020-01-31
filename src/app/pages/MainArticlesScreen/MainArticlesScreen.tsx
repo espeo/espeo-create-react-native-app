@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { View } from 'react-native';
 import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { WrappedComponentProps } from 'react-intl';
 import { v1 } from 'uuid';
@@ -13,7 +12,11 @@ import {
 import Modules from '@pages/index';
 import StyledButton from '@styles/components/buttons';
 import { StateProps, DispatchProps } from './index';
-import { MainWrapper } from './components/Main.styles';
+import {
+  MainWrapper,
+  ArticlesWrapper,
+  MainScrollView,
+} from './components/Main.styles';
 import { Filters, Article } from './components';
 
 type MainScreenProps = WrappedComponentProps &
@@ -62,22 +65,24 @@ class MainScreen extends PureComponent<MainScreenProps> {
     } = this.props;
     return (
       <MainWrapper>
-        <Filters
-          topic={topic}
-          date={date}
-          sortBy={sortBy}
-          clearFilters={clearArticlesFilters}
-          handlePicker={this.handleFilterPicker}
-        />
-        <View>
-          {data.map((article: ArticleData) => (
-            <Article key={article.publishedAt + v1()} article={article} />
-          ))}
-        </View>
-        <StyledButton
-          title={intl.formatMessage({ id: 'main.button' })}
-          onPress={this.handleToSecondScreen}
-        />
+        <MainScrollView>
+          <Filters
+            topic={topic}
+            date={date}
+            sortBy={sortBy}
+            clearFilters={clearArticlesFilters}
+            handlePicker={this.handleFilterPicker}
+          />
+          <ArticlesWrapper>
+            {data.map((article: ArticleData) => (
+              <Article key={article.publishedAt + v1()} article={article} />
+            ))}
+          </ArticlesWrapper>
+          <StyledButton
+            title={intl.formatMessage({ id: 'main.button' })}
+            onPress={this.handleToSecondScreen}
+          />
+        </MainScrollView>
       </MainWrapper>
     );
   }

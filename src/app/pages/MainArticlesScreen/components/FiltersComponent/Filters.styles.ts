@@ -15,6 +15,10 @@ export const PickerWrapper = styled.View`
   margin: 5px 0;
 `;
 
+export const PickersButtonWrapper = styled.View`
+  width: 90%;
+`;
+
 export const StyledPicker = styled.Picker`
   height: 40;
   padding: 5px;

@@ -6,8 +6,13 @@ import {
   timeValues,
   sortValues,
 } from '@pages/MainArticlesScreen/namespace';
-import { StyledPicker, PickersWrapper, PickerWrapper } from './Filters.styles';
 import StyledButton from '@styles/components/buttons';
+import {
+  StyledPicker,
+  PickersWrapper,
+  PickerWrapper,
+  PickersButtonWrapper,
+} from './Filters.styles';
 
 interface OwnProps {
   topic: string;
@@ -84,10 +89,12 @@ class FiltersComponent extends PureComponent<FiltersProps> {
             />
           </StyledPicker>
         </PickerWrapper>
-        <StyledButton
-          onPress={clearFilters}
-          title={intl.formatMessage({ id: 'picker.button.clear' })}
-        />
+        <PickersButtonWrapper>
+          <StyledButton
+            onPress={clearFilters}
+            title={intl.formatMessage({ id: 'picker.button.clear' })}
+          />
+        </PickersButtonWrapper>
       </PickersWrapper>
     );
   }
