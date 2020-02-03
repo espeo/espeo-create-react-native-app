@@ -57,3 +57,9 @@ export interface FetchArticlesArgs {
   page: number;
   filters: FiltersProps;
 }
+
+export interface PickerData {
+  key: string;
+  label: string;
+  value: timeValues | sortValues | topicValues;
+}

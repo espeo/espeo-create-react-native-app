@@ -6,6 +6,7 @@ import {
   topicValues,
   timeValues,
   sortValues,
+  PickerData,
 } from '@pages/MainArticlesScreen/namespace';
 import Modules from '@pages/index';
 import { StyledButton } from '@core/styles/components';
@@ -34,7 +35,7 @@ class MainScreen extends PureComponent<MainScreenProps> {
     });
   };
 
-  private handleFilterPicker = (value: string) => {
+  private handleFilterPicker = ({ value }: Pick<PickerData, 'value'>) => {
     const { filterArticles, topic, sortBy, date } = this.props;
     if (value in topicValues) {
       filterArticles({ topic: value, sortBy, date });

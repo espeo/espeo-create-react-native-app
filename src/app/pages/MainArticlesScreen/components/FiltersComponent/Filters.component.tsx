@@ -1,20 +1,22 @@
 import React, { PureComponent } from 'react';
-import { Picker } from 'react-native';
 import { WrappedComponentProps } from 'react-intl';
+import { v1 } from 'uuid';
 import {
   topicValues,
   timeValues,
   sortValues,
+  PickerData,
 } from '@pages/MainArticlesScreen/namespace';
 import { StyledButton } from '@core/styles/components';
-import { StyledPicker, PickersWrapper, PickerWrapper } from './Filters.styles';
+import { PickersWrapper } from './Filters.styles';
+import { CustomModalSelector } from '../index';
 
 interface OwnProps {
   topic: string;
   date: string;
   sortBy: string;
   clearFilters(): void;
-  handlePicker(filter: string): void;
+  handlePicker(value: PickerData): void;
 }
 
 type FiltersProps = WrappedComponentProps & OwnProps;
@@ -30,60 +32,82 @@ class FiltersComponent extends PureComponent<FiltersProps> {
       handlePicker,
     } = this.props;
 
+    const topicData: PickerData[] = [
+      {
+        key: v1(),
+        label: intl.formatMessage({ id: 'picker.topic.sport' }),
+        value: topicValues.sport,
+      },
+      {
+        key: v1(),
+        label: intl.formatMessage({ id: 'picker.topic.fashion' }),
+        value: topicValues.fashion,
+      },
+      {
+        key: v1(),
+        label: intl.formatMessage({ id: 'picker.topic.design' }),
+        value: topicValues.design,
+      },
+      {
+        key: v1(),
+        label: intl.formatMessage({ id: 'picker.topic.literature' }),
+        value: topicValues.literature,
+      },
+    ];
+
+    const timeData: PickerData[] = [
+      {
+        key: v1(),
+        label: intl.formatMessage({ id: 'picker.time.today' }),
+        value: timeValues.today,
+      },
+      {
+        key: v1(),
+        label: intl.formatMessage({ id: 'picker.time.week' }),
+        value: timeValues.week,
+      },
+      {
+        key: v1(),
+        label: intl.formatMessage({ id: 'picker.time.month' }),
+        value: timeValues.month,
+      },
+    ];
+
+    const sortData: PickerData[] = [
+      {
+        key: v1(),
+        label: intl.formatMessage({ id: 'picker.sort.popularity' }),
+        value: sortValues.popularity,
+      },
+      {
+        key: v1(),
+        label: intl.formatMessage({ id: 'picker.sort.publishedAt' }),
+        value: sortValues.publishedAt,
+      },
+      {
+        key: v1(),
+        label: intl.formatMessage({ id: 'picker.sort.writtenIn' }),
+        value: sortValues.writtenIn,
+      },
+    ];
+
     return (
       <PickersWrapper>
-        <PickerWrapper>
-          <StyledPicker selectedValue={topic} onValueChange={handlePicker}>
-            <Picker.Item
-              label={intl.formatMessage({ id: 'picker.topic.sport' })}
-              value={topicValues.sport}
-            />
-            <Picker.Item
-              label={intl.formatMessage({ id: 'picker.topic.fashion' })}
-              value={topicValues.fashion}
-            />
-            <Picker.Item
-              label={intl.formatMessage({ id: 'picker.topic.design' })}
-              value={topicValues.design}
-            />
-            <Picker.Item
-              label={intl.formatMessage({ id: 'picker.topic.literature' })}
-              value={topicValues.literature}
-            />
-          </StyledPicker>
-        </PickerWrapper>
-        <PickerWrapper>
-          <StyledPicker selectedValue={date} onValueChange={handlePicker}>
-            <Picker.Item
-              label={intl.formatMessage({ id: 'picker.time.today' })}
-              value={timeValues.today}
-            />
-            <Picker.Item
-              label={intl.formatMessage({ id: 'picker.time.week' })}
-              value={timeValues.week}
-            />
-            <Picker.Item
-              label={intl.formatMessage({ id: 'picker.time.month' })}
-              value={timeValues.month}
-            />
-          </StyledPicker>
-        </PickerWrapper>
-        <PickerWrapper>
-          <StyledPicker selectedValue={sortBy} onValueChange={handlePicker}>
-            <Picker.Item
-              label={intl.formatMessage({ id: 'picker.sort.popularity' })}
-              value={sortValues.popularity}
-            />
-            <Picker.Item
-              label={intl.formatMessage({ id: 'picker.sort.publishedAt' })}
-              value={sortValues.publishedAt}
-            />
-            <Picker.Item
-              label={intl.formatMessage({ id: 'picker.sort.writtenIn' })}
-              value={sortValues.writtenIn}
-            />
-          </StyledPicker>
-        </PickerWrapper>
+        <CustomModalSelector
+          data={topicData}
+          initValue={topic}
+          onChange={handlePicker}
+        />
+        <CustomModalSelector
+          data={timeData}
+          initValue={date}
+          onChange={handlePicker}
+        />
+        <CustomModalSelector
+          data={sortData}
+          initValue={sortBy}
+          onChange={handlePicker}
+        />
         <StyledButton
           onPress={clearFilters}
           title={intl.formatMessage({ id: 'picker.button.clear' })}
