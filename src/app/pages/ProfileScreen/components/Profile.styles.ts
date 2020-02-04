@@ -1,6 +1,5 @@
 import { styled } from '@styles/themes/defaultTheme';
-import { Text } from '@styles/components/text';
-import { CenterWrapper } from '@styles/components/containers';
+import { Text, CenterWrapper } from '@styles/components';
 
 export const ProfileWrapper = styled(CenterWrapper)``;
 

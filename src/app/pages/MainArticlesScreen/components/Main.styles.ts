@@ -1,9 +1,14 @@
-import { Text } from '@styles/components/text';
-import { CenterWrapper } from '@styles/components/containers';
 import { styled } from '@styles/themes';
+import { FlatList } from 'react-native';
 
-export const MainWrapper = styled(CenterWrapper)``;
+export const MainWrapper = styled.View``;
 
-export const MainTitle = styled(Text)`
-  margin-bottom: 10;
+export const ArticlesWrapper = styled.View`
+  background-color: ${props => props.theme.colors.primary};
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ArticlesFlatList = styled(FlatList)`
+  background-color: ${props => props.theme.colors.primary};
 `;

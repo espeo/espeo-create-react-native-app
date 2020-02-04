@@ -3,3 +3,5 @@ export enum ErrorCodes {
   ACCESS_DENIED = 403,
   NOT_FOUND = 404,
 }
+
+export const fallbackImage = 'https://via.placeholder.com/666';

@@ -2,6 +2,7 @@ import { compose, bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { injectIntl } from 'react-intl';
 import { NavigationScreenComponent } from 'react-navigation';
+import { defaultTheme } from '@styles/themes';
 
 import { ScreenPropsConfig } from '@common/types/navigation';
 import {
@@ -66,8 +67,15 @@ export const MainScreenModule: ScreenPropsConfig = {
   module: MainScreenComposed,
   name: 'MainScreen',
   options: {
-    headerLeft: null,
-    headerTitle: null,
-    headerRight: null,
+    title: 'Time for new information',
+    headerStyle: {
+      backgroundColor: defaultTheme.colors.secondary,
+    },
+    headerTintColor: defaultTheme.colors.light,
+    headerTitleStyle: {
+      flex: 1,
+      textAlign: 'center',
+      fontWeight: 'bold',
+    },
   },
 };

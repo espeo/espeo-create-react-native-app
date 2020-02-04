@@ -1,5 +1,5 @@
 {
-  "main.title": "Espeo Create React Native App",
+  "main.title": "Time for new information",
   "main.button": "Next page",
   "profile.title": "Profile",
   "profile.button": "Back",
@@ -14,5 +14,7 @@
   "picker.time.week": "week",
   "picker.sort.popularity": "popularity",
   "picker.sort.writtenIn": "writtenIn",
-  "picker.sort.publishedAt": "publishedAt"
+  "picker.sort.publishedAt": "publishedAt",
+  "mainArticles.author": "Author",
+  "mainArticles.knowMore": "Know more"
 }
