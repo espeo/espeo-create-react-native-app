@@ -16,5 +16,7 @@
   "picker.sort.writtenIn": "writtenIn",
   "picker.sort.publishedAt": "publishedAt",
   "mainArticles.author": "Author",
-  "mainArticles.knowMore": "Know more"
+  "mainArticles.knowMore": "Know more",
+  "articlePage.sourceLink": "Read more here > Source: {source}",
+  "articlePage.back": "Back to articles"
 }

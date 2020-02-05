@@ -1,10 +1,12 @@
 import React, { PureComponent } from 'react';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { WrappedComponentProps } from 'react-intl';
 import dayjs from 'dayjs';
 
 import { ArticleData } from '@pages/MainArticlesScreen/namespace';
 import { fallbackImage } from '@core/constants';
 import { StyledButton } from '@core/styles/components';
+import Modules from '@pages/index';
 import {
   ArticleDescription,
   ArticleImage,
@@ -18,12 +20,16 @@ interface OwnProps {
   article: ArticleData;
 }
 
-type MainScreenProps = WrappedComponentProps & OwnProps;
+type ArticleScreenProps = WrappedComponentProps &
+  NavigationStackScreenProps &
+  OwnProps;
 
-class ArticleComponent extends PureComponent<MainScreenProps> {
-  private goToOwnPage() {
-    console.log('go to');
-  }
+class ArticleComponent extends PureComponent<ArticleScreenProps> {
+  private goToOwnPage = () => {
+    this.props.navigation.navigate(Modules.ArticleScreenModule.name, {
+      article: this.props.article,
+    });
+  };
 
   public render() {
     const { intl, article } = this.props;
