@@ -68,14 +68,18 @@ export const MainScreenModule: ScreenPropsConfig = {
   name: 'MainScreen',
   options: {
     title: 'Time for new information',
+    headerTitleAlign: 'center',
     headerStyle: {
       backgroundColor: defaultTheme.colors.secondary,
     },
     headerTintColor: defaultTheme.colors.light,
     headerTitleStyle: {
-      flex: 1,
+      alignSelf: 'center',
       textAlign: 'center',
+      justifyContent: 'center',
+      flex: 1,
       fontWeight: 'bold',
+      textAlignVertical: 'center',
     },
   },
 };
