@@ -6,7 +6,7 @@ import dayjs from 'dayjs';
 import { ArticleData } from '@pages/MainArticlesScreen/namespace';
 import { fallbackImage } from '@core/constants';
 import { StyledButton } from '@core/styles/components';
-import { ArticleScreenModule } from '@core/pages/ArticleScreen';
+import Modules from '@core/pages';
 import {
   ArticleDescription,
   ArticleImage,
@@ -26,7 +26,7 @@ type ArticleScreenProps = WrappedComponentProps &
 
 class ArticleComponent extends PureComponent<ArticleScreenProps> {
   private goToOwnPage = () => {
-    this.props.navigation.navigate(ArticleScreenModule.name, {
+    this.props.navigation.navigate(Modules.ArticleScreenModule.name, {
       article: this.props.article,
     });
   };

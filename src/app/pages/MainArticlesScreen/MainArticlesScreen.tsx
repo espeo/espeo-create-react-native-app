@@ -8,7 +8,7 @@ import {
   sortValues,
   PickerData,
 } from '@pages/MainArticlesScreen/namespace';
-import { ProfileScreenModule } from '@pages/ProfileScreen';
+import Modules from '@core/pages';
 
 import { StyledButton } from '@core/styles/components';
 import { StateProps, DispatchProps } from './index';
@@ -25,7 +25,7 @@ class MainScreen extends PureComponent<MainScreenProps> {
   }
 
   private handleToSecondScreen = () => {
-    this.props.navigation.navigate(ProfileScreenModule.name);
+    this.props.navigation.navigate(Modules.ProfileScreenModule.name);
   };
 
   private getArticles = () => {
