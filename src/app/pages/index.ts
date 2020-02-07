@@ -1,4 +1,4 @@
-import { NavigationStructureProps } from '@core/common/types/navigation';
+import { NavigationStructureProps } from '@common/types/navigation';
 import { MainScreenModule } from './MainArticlesScreen';
 import { ProfileScreenModule } from './ProfileScreen';
 import { ArticleScreenModule } from './ArticleScreen';

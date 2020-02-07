@@ -1,10 +1,14 @@
+import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { injectIntl } from 'react-intl';
+import { injectIntl, WrappedComponentProps } from 'react-intl';
 import { NavigationScreenComponent } from 'react-navigation';
-import { defaultTheme } from '@styles/themes';
-
-import { ScreenPropsConfig } from '@common/types/navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
+import {
+  NavigationStructureProps,
+  ScreenPropsConfig,
+} from '@common/types/navigation';
+import { NavigationTitle } from '@common/components';
 import {
   ArticleData,
   MainArticlesScreenState,
@@ -14,6 +18,8 @@ import ArticleScreen from './ArticleScreen';
 export interface StateProps {
   data: Array<ArticleData>;
 }
+
+export type OwnProps = WrappedComponentProps & NavigationStackScreenProps;
 
 interface ReducerType {
   mainScreenReducer: MainArticlesScreenState;
@@ -25,28 +31,20 @@ const mapStateToProps = (state: ReducerType): StateProps => {
   };
 };
 
-const ArticleScreenComposed = compose<NavigationScreenComponent<any, any>>(
+const ArticleScreenComposed = compose<
+  NavigationScreenComponent<ScreenPropsConfig, NavigationStructureProps>
+>(
   injectIntl,
-  connect<StateProps, null, any, ReducerType>(mapStateToProps),
+  connect<StateProps, null, OwnProps, ReducerType>(mapStateToProps),
 )(ArticleScreen);
 
 export const ArticleScreenModule: ScreenPropsConfig = {
   module: ArticleScreenComposed,
   name: 'ArticleScreen',
   options: {
-    title: 'Time for new information',
-    headerTitleAlign: 'center',
+    header: () => <NavigationTitle title="mainArticles.header" />,
     headerStyle: {
-      backgroundColor: defaultTheme.colors.secondary,
-    },
-    headerTintColor: defaultTheme.colors.light,
-    headerTitleStyle: {
-      alignSelf: 'center',
-      textAlign: 'center',
-      justifyContent: 'center',
-      flex: 1,
-      fontWeight: 'bold',
-      textAlignVertical: 'center',
+      height: 60,
     },
   },
 };

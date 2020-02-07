@@ -1,12 +1,10 @@
 import React, { PureComponent } from 'react';
-import { NavigationStackScreenProps } from 'react-navigation-stack';
-import { WrappedComponentProps } from 'react-intl';
 import { Linking } from 'react-native';
 import dayjs from 'dayjs';
-import { StyledButton } from '@core/styles/components';
+import { StyledButton } from '@styles/components';
 import { fallbackImage } from '@core/constants';
-import { ArticleData } from '@core/pages/MainArticlesScreen/namespace';
-import { StateProps } from './index';
+import { ArticleData } from '@pages/MainArticlesScreen/namespace';
+import { StateProps, OwnProps } from './index';
 import {
   ArticleMetaDataWrapper,
   ArticleContent,
@@ -18,9 +16,7 @@ import {
   ArticleWrapper,
 } from './components/ArticleScreen.styles';
 
-type ArticleScreenProps = WrappedComponentProps &
-  NavigationStackScreenProps &
-  StateProps;
+type ArticleScreenProps = OwnProps & StateProps;
 
 class ArticleScreen extends PureComponent<ArticleScreenProps> {
   private handleBack = () => {
@@ -28,14 +24,21 @@ class ArticleScreen extends PureComponent<ArticleScreenProps> {
   };
 
   private openArticleInBrowser = () => {
-    const { url } = this.props.navigation.state.params?.article;
-    Linking.canOpenURL(url).then(supported => {
-      if (supported) {
-        Linking.openURL(url);
-      } else {
-        throw Error(`Don't know how to open URI: ${url}`);
-      }
-    });
+    const { intl, navigation } = this.props;
+    const { url } = navigation.state.params?.article;
+    try {
+      Linking.canOpenURL(url).then(supported => {
+        if (supported) {
+          Linking.openURL(url);
+        } else {
+          throw Error(
+            intl.formatMessage({ id: 'articlePage.urlError' }, { url }),
+          );
+        }
+      });
+    } catch {
+      throw Error(intl.formatMessage({ id: 'articlePage.urlUndefined' }));
+    }
   };
 
   public render() {

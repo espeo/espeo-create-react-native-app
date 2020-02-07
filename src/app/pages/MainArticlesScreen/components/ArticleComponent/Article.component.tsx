@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 
 import { ArticleData } from '@pages/MainArticlesScreen/namespace';
 import { fallbackImage } from '@core/constants';
-import { StyledButton } from '@core/styles/components';
+import { StyledButton } from '@styles/components';
 import Modules from '@core/pages';
 import {
   ArticleDescription,

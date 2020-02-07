@@ -1,10 +1,14 @@
+import React from 'react';
 import { compose, bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { injectIntl } from 'react-intl';
+import { injectIntl, WrappedComponentProps } from 'react-intl';
 import { NavigationScreenComponent } from 'react-navigation';
-import { defaultTheme } from '@styles/themes';
-
-import { ScreenPropsConfig } from '@common/types/navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
+import {
+  NavigationStructureProps,
+  ScreenPropsConfig,
+} from '@common/types/navigation';
+import { NavigationTitle } from '@common/components';
 import {
   MainArticlesScreenState,
   ArticleData,
@@ -35,6 +39,8 @@ export interface StateProps {
   date: timeTypes;
 }
 
+export type OwnProps = WrappedComponentProps & NavigationStackScreenProps;
+
 interface ReducerType {
   mainScreenReducer: MainArticlesScreenState;
 }
@@ -55,9 +61,11 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps =>
     dispatch,
   );
 
-const MainScreenComposed = compose<NavigationScreenComponent<any, any>>(
+const MainScreenComposed = compose<
+  NavigationScreenComponent<ScreenPropsConfig, NavigationStructureProps>
+>(
   injectIntl,
-  connect<StateProps, DispatchProps, any, ReducerType>(
+  connect<StateProps, DispatchProps, OwnProps, ReducerType>(
     mapStateToProps,
     mapDispatchToProps,
   ),
@@ -67,19 +75,9 @@ export const MainScreenModule: ScreenPropsConfig = {
   module: MainScreenComposed,
   name: 'MainScreen',
   options: {
-    title: 'Time for new information',
-    headerTitleAlign: 'center',
+    header: () => <NavigationTitle title="mainArticles.header" />,
     headerStyle: {
-      backgroundColor: defaultTheme.colors.secondary,
-    },
-    headerTintColor: defaultTheme.colors.light,
-    headerTitleStyle: {
-      alignSelf: 'center',
-      textAlign: 'center',
-      justifyContent: 'center',
-      flex: 1,
-      fontWeight: 'bold',
-      textAlignVertical: 'center',
+      height: 60,
     },
   },
 };

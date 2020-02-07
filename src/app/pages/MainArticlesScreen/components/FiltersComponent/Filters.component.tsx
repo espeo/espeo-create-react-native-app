@@ -7,7 +7,7 @@ import {
   sortValues,
   PickerData,
 } from '@pages/MainArticlesScreen/namespace';
-import { StyledButton } from '@core/styles/components';
+import { StyledButton } from '@styles/components';
 import { CustomModalSelector } from '@pages/MainArticlesScreen/components/ModalSelector';
 import { PickersWrapper } from './Filters.styles';
 
