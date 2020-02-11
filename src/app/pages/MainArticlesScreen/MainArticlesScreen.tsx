@@ -1,6 +1,4 @@
 import React, { PureComponent } from 'react';
-import { NavigationStackScreenProps } from 'react-navigation-stack';
-import { WrappedComponentProps } from 'react-intl';
 import { v1 } from 'uuid';
 import {
   topicValues,
@@ -8,15 +6,13 @@ import {
   sortValues,
   PickerData,
 } from '@pages/MainArticlesScreen/namespace';
-import Modules from '@pages/index';
-import { StyledButton } from '@core/styles/components';
-import { StateProps, DispatchProps } from './index';
+import Modules from '@core/pages';
+
+import { StyledButton } from '@styles/components';
+import { StateProps, DispatchProps, OwnProps } from './index';
 import { Filters, Article, MainWrapper, ArticlesFlatList } from './components';
 
-type MainScreenProps = WrappedComponentProps &
-  NavigationStackScreenProps &
-  StateProps &
-  DispatchProps;
+type MainScreenProps = OwnProps & StateProps & DispatchProps;
 
 class MainScreen extends PureComponent<MainScreenProps> {
   public componentDidMount() {

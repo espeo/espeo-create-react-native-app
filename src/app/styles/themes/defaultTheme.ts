@@ -20,6 +20,7 @@ export const defaultTheme = {
       small: '10px',
       medium: '14px',
       large: '18px',
+      xlarge: '26px',
     },
     weight: {
       bold: 'bold',

@@ -14,11 +14,12 @@ const StyledButton = ({ onPress, title }: StyledButtonProps): JSX.Element => (
 
 const ButtonContainer = styled.TouchableOpacity`
   width: 100%;
-  height: 35;
+  min-height: 35;
   background-color: ${props => props.theme.colors.secondary};
   justify-content: center;
   align-items: center;
-  margin: 10px 0;
+  margin: ${props => props.theme.margin.medium} 0;
+  padding: ${props => props.theme.padding.small} 0;
 `;
 
 const ButtonText = styled.Text`

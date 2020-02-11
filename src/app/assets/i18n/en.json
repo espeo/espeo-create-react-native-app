@@ -15,6 +15,11 @@
   "picker.sort.popularity": "popularity",
   "picker.sort.writtenIn": "writtenIn",
   "picker.sort.publishedAt": "publishedAt",
+  "mainArticles.header": "Time for new information",
   "mainArticles.author": "Author",
-  "mainArticles.knowMore": "Know more"
+  "mainArticles.knowMore": "Know more",
+  "articlePage.sourceLink": "Read more here > Source: {source}",
+  "articlePage.urlError": "Don't know how to open URI: {url}",
+  "articlePage.urlUndefined": "Sorry, URI is incorrect",
+  "articlePage.back": "Back to articles"
 }

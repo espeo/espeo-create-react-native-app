@@ -4,8 +4,6 @@ export const ProfileScreenModule = {
   module: ProfileScreen,
   name: 'ProfileScreen',
   options: {
-    headerLeft: null,
-    headerTitle: null,
-    headerRight: null,
+    title: 'profile screen',
   },
 };

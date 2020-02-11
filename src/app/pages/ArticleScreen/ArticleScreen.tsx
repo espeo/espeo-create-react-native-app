@@ -1,0 +1,84 @@
+import React, { PureComponent } from 'react';
+import { Linking } from 'react-native';
+import dayjs from 'dayjs';
+import { StyledButton } from '@styles/components';
+import { fallbackImage } from '@core/constants';
+import { ArticleData } from '@pages/MainArticlesScreen/namespace';
+import { StateProps, OwnProps } from './index';
+import {
+  ArticleMetaDataWrapper,
+  ArticleContent,
+  ArticleContentWrapper,
+  ArticleDescription,
+  ArticleHeader,
+  ArticleImage,
+  ArticleMetaTitle,
+  ArticleWrapper,
+} from './components/ArticleScreen.styles';
+
+type ArticleScreenProps = OwnProps & StateProps;
+
+class ArticleScreen extends PureComponent<ArticleScreenProps> {
+  private handleBack = () => {
+    this.props.navigation.goBack();
+  };
+
+  private openArticleInBrowser = () => {
+    const { intl, navigation } = this.props;
+    const { url } = navigation.state.params?.article;
+    try {
+      Linking.canOpenURL(url).then(supported => {
+        if (supported) {
+          Linking.openURL(url);
+        } else {
+          throw Error(
+            intl.formatMessage({ id: 'articlePage.urlError' }, { url }),
+          );
+        }
+      });
+    } catch {
+      throw Error(intl.formatMessage({ id: 'articlePage.urlUndefined' }));
+    }
+  };
+
+  public render() {
+    const { intl, navigation } = this.props;
+    const articleData: ArticleData = navigation.state.params?.article;
+
+    return (
+      <ArticleWrapper>
+        <ArticleHeader>{articleData.title}</ArticleHeader>
+        <ArticleContentWrapper>
+          <ArticleDescription>{articleData.description}</ArticleDescription>
+          <ArticleImage
+            resizeMode="cover"
+            source={{ uri: articleData.urlToImage ?? fallbackImage }}
+          />
+          <ArticleMetaDataWrapper>
+            <ArticleMetaTitle>
+              {dayjs(articleData.publishedAt).format('YYYY, MMM DD ')}
+            </ArticleMetaTitle>
+            <ArticleMetaTitle>
+              {articleData.author ??
+                intl.formatMessage({ id: 'mainArticles.author' })}
+            </ArticleMetaTitle>
+          </ArticleMetaDataWrapper>
+          <ArticleContent>{articleData.content}</ArticleContent>
+          <StyledButton
+            title={intl.formatMessage(
+              { id: 'articlePage.sourceLink' },
+              { source: articleData.source.name },
+            )}
+            onPress={this.openArticleInBrowser}
+          />
+          <StyledButton
+            title={intl.formatMessage({ id: 'articlePage.back' })}
+            onPress={this.handleBack}
+          />
+        </ArticleContentWrapper>
+      </ArticleWrapper>
+    );
+  }
+}
+
+export default ArticleScreen;
