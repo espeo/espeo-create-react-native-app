@@ -16,6 +16,7 @@
     "^@core/(.*)": "<rootDir>/src/app/$1",
     "^@assets/(.*)": "<rootDir>/src/app/assets/$1",
     "^@pages/(.*)": "<rootDir>/src/app/pages/$1",
+    "^@store/(.*)": "<rootDir>/src/app/store/$1",
     "^@styles/(.*)": "<rootDir>/src/app/styles/$1"
   },
   "setupFiles": ["<rootDir>/test-setup.ts"]
