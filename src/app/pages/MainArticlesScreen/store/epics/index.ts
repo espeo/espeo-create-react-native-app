@@ -1,5 +1,5 @@
 import { of, from } from 'rxjs';
-import { map, catchError, mergeMap } from 'rxjs/operators';
+import { map, catchError, switchMap } from 'rxjs/operators';
 import { ofType, Epic } from 'redux-observable';
 import { RootStore, Dependencies } from '@core/store';
 import { getFilterProps } from '@core/pages/MainArticlesScreen/namespace';
@@ -42,7 +42,7 @@ const getArticlesEpic: Epic<
 > = (action$, _state$, { getArticlesService }) =>
   action$.pipe(
     ofType<fetchArticlesType>(MainScreenTypes.FETCH_ARTICLES),
-    mergeMap(({ payload }) => {
+    switchMap(({ payload }) => {
       const { page, filters } = payload;
       const { topic, sortBy, date } = getFilterProps(filters);
       return from(getArticlesService(page, topic, sortBy, date)).pipe(
@@ -60,7 +60,7 @@ const filterSortArticlesEpic: Epic<
 > = (action$, _state$, { getArticlesService }) =>
   action$.pipe(
     ofType<filterSortArticlesEpicInputs>(MainScreenTypes.SORT_ARTICLES_FILTER),
-    mergeMap(({ payload }) => {
+    switchMap(({ payload }) => {
       const page = 1;
       const { topic, sortBy, date } = getFilterProps(payload);
       return from(getArticlesService(page, topic, sortBy, date)).pipe(
@@ -78,7 +78,7 @@ const clearArticlesFiltersEpic: Epic<
 > = (action$, _state$, { getArticlesService }) =>
   action$.pipe(
     ofType<clearArticlesFiltersEpicInputs>(MainScreenTypes.CLEAR_FILTERS),
-    mergeMap(() =>
+    switchMap(() =>
       from(getArticlesService()).pipe(
         map(({ articles }) => reloadArticles(articles)),
         catchError(e => of(fetchArticlesFailed(e))),

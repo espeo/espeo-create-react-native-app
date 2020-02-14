@@ -1,8 +1,10 @@
 import { put, takeLatest, all, fork, call } from 'redux-saga/effects';
+import { SagaIterator } from 'redux-saga';
 import {
   FiltersProps,
   getFilterProps,
   FetchArticlesArgs,
+  ArticleDataFromAPI,
 } from '@pages/MainArticlesScreen/namespace';
 import { getArticlesService } from '@core/services';
 import {
@@ -12,11 +14,14 @@ import {
   reloadArticles,
 } from '../actions';
 
-function* getArticles(action: { payload: FetchArticlesArgs; type: string }) {
+function* getArticles(action: {
+  payload: FetchArticlesArgs;
+  type: string;
+}): SagaIterator {
   try {
     const { page, filters } = action.payload;
     const { topic, sortBy, date } = getFilterProps(filters);
-    const { articles } = yield call(
+    const { articles }: ArticleDataFromAPI = yield call(
       getArticlesService,
       page,
       topic,
@@ -29,11 +34,14 @@ function* getArticles(action: { payload: FetchArticlesArgs; type: string }) {
   }
 }
 
-function* filterSortArticles(action: { type: string; payload: FiltersProps }) {
+function* filterSortArticles(action: {
+  type: string;
+  payload: FiltersProps;
+}): SagaIterator {
   try {
     const { topic, sortBy, date } = getFilterProps(action.payload);
     const page = 1;
-    const { articles } = yield call(
+    const { articles }: ArticleDataFromAPI = yield call(
       getArticlesService,
       page,
       topic,
@@ -46,9 +54,9 @@ function* filterSortArticles(action: { type: string; payload: FiltersProps }) {
   }
 }
 
-function* clearArticlesFilters() {
+function* clearArticlesFilters(): SagaIterator {
   try {
-    const { articles } = yield call(getArticlesService);
+    const { articles }: ArticleDataFromAPI = yield call(getArticlesService);
     yield put(reloadArticles(articles));
   } catch (e) {
     yield put(fetchArticlesFailed(e));
