@@ -10,7 +10,7 @@ import { getArticlesService } from '@core/services';
 import { MainScreenActions } from '@core/pages/MainArticlesScreen/store/actions';
 
 type chosenMiddlewareType = 'saga' | 'observable';
-const chosenMiddleware: chosenMiddlewareType = 'saga' as chosenMiddlewareType;
+const chosenMiddleware: chosenMiddlewareType = 'observable' as chosenMiddlewareType;
 
 export interface RootStore {
   main: MainArticlesScreenState;
@@ -35,9 +35,7 @@ const usedMiddleware =
   chosenMiddleware === 'saga' ? sagaMiddleware : epicMiddleware;
 
 const composeEnhancers =
-  (process.env.NODE_ENV === 'development' &&
-    (window as any)?.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-  compose;
+  (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const middleware = [usedMiddleware, logger];
 
