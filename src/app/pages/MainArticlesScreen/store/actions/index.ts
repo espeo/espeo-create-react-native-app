@@ -36,7 +36,7 @@ export type filterArticlesType = ReturnType<typeof filterArticles>;
 
 export const clearArticlesFilters = () =>
   ({
-    type: MainScreenTypes.CLEAR_FILTERS,
+    type: MainScreenTypes.CLEAR_FILTERS as string,
   } as const);
 export type clearArticlesFiltersType = ReturnType<typeof clearArticlesFilters>;
 
