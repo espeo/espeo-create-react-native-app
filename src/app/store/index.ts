@@ -1,8 +1,7 @@
-import { createEpicMiddleware } from 'redux-observable';
 import { createStore, applyMiddleware, compose } from 'redux';
 import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
-
+import { createEpicMiddleware } from 'redux-observable';
 import rootReducer from '@store/RootReducer';
 import rootSaga from '@store/RootSaga';
 import { rootEpic } from '@store/RootEpic';
@@ -11,7 +10,7 @@ import { getArticlesService } from '@core/services';
 import { MainScreenActions } from '@core/pages/MainArticlesScreen/store/actions';
 
 type chosenMiddlewareType = 'saga' | 'observable';
-const chosenMiddleware: chosenMiddlewareType = 'observable' as chosenMiddlewareType;
+const chosenMiddleware: chosenMiddlewareType = 'saga' as chosenMiddlewareType;
 
 export interface RootStore {
   main: MainArticlesScreenState;
@@ -36,7 +35,9 @@ const usedMiddleware =
   chosenMiddleware === 'saga' ? sagaMiddleware : epicMiddleware;
 
 const composeEnhancers =
-  (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  (process.env.NODE_ENV === 'development' &&
+    (window as any)?.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  compose;
 
 const middleware = [usedMiddleware, logger];
 

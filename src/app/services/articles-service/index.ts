@@ -1,8 +1,10 @@
+import { AxiosResponse } from 'axios';
 import dayjs from 'dayjs';
 // eslint-disable-next-line
 // @ts-ignore
 import { API_KEY as apiKey } from 'react-native-dotenv';
 import ApiService from '@services/config';
+import { ArticleDataFromAPI } from '@core/pages/MainArticlesScreen/namespace';
 import {
   topicValues,
   sortValues,
@@ -43,9 +45,9 @@ const getArticlesService = (
     to,
     apiKey,
   };
-  return ApiService.get(url, params)
-    .then((data: any) => data)
-    .catch((error: any) => {
+  return ApiService.get<AxiosResponse<ArticleDataFromAPI>>(url, params)
+    .then(({ data }) => data)
+    .catch((error: string) => {
       throw new Error(error);
     });
 };

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosResponse, AxiosError, AxiosInstance } from 'axios';
 // linter disabled because of (hopefully temporary) incompatibility with Typescript - https://github.com/zetachang/react-native-dotenv/issues/76
 // eslint-disable-next-line
 // @ts-ignore
@@ -7,7 +7,7 @@ import { ErrorCodes } from '../constants';
 import asyncStorageService from './async-storage';
 
 class ApiService {
-  public request: any;
+  public request: AxiosInstance;
 
   constructor() {
     const config = {
@@ -21,8 +21,8 @@ class ApiService {
     this.request = axios.create(config);
 
     this.request.interceptors.response.use(
-      (response: any) => response,
-      (error: any) => {
+      (response: AxiosResponse) => response,
+      (error: AxiosError) => {
         if (error && error.response) {
           const { status } = error.response;
           if (

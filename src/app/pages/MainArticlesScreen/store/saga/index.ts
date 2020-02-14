@@ -1,6 +1,7 @@
 import { put, takeLatest, all, fork, call } from 'redux-saga/effects';
 import {
   FiltersProps,
+  getFilterProps,
   FetchArticlesArgs,
 } from '@pages/MainArticlesScreen/namespace';
 import { getArticlesService } from '@core/services';
@@ -11,20 +12,18 @@ import {
   reloadArticles,
 } from '../actions';
 
-const getFilterProps = (payload: FiltersProps): FiltersProps => {
-  return {
-    topic: payload.topic,
-    sortBy: payload.sortBy,
-    date: payload.date,
-  };
-};
-
 function* getArticles(action: { payload: FetchArticlesArgs; type: string }) {
   try {
-    const { page } = action.payload;
-    const { topic, sortBy, date } = getFilterProps(action.payload.filters);
-    const { data } = yield call(getArticlesService, page, topic, sortBy, date);
-    yield put(fetchArticlesSuccess(data.articles));
+    const { page, filters } = action.payload;
+    const { topic, sortBy, date } = getFilterProps(filters);
+    const { articles } = yield call(
+      getArticlesService,
+      page,
+      topic,
+      sortBy,
+      date,
+    );
+    yield put(fetchArticlesSuccess(articles));
   } catch (e) {
     yield put(fetchArticlesFailed(e));
   }
@@ -34,8 +33,14 @@ function* filterSortArticles(action: { type: string; payload: FiltersProps }) {
   try {
     const { topic, sortBy, date } = getFilterProps(action.payload);
     const page = 1;
-    const { data } = yield call(getArticlesService, page, topic, sortBy, date);
-    yield put(reloadArticles(data.articles));
+    const { articles } = yield call(
+      getArticlesService,
+      page,
+      topic,
+      sortBy,
+      date,
+    );
+    yield put(reloadArticles(articles));
   } catch (e) {
     yield put(fetchArticlesFailed(e));
   }
@@ -43,8 +48,8 @@ function* filterSortArticles(action: { type: string; payload: FiltersProps }) {
 
 function* clearArticlesFilters() {
   try {
-    const { data } = yield call(getArticlesService);
-    yield put(reloadArticles(data.articles));
+    const { articles } = yield call(getArticlesService);
+    yield put(reloadArticles(articles));
   } catch (e) {
     yield put(fetchArticlesFailed(e));
   }
