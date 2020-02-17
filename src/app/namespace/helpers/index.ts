@@ -13,19 +13,19 @@ export const reduxAsyncAction = (actionName: string) => {
       return {
         type: ACTION,
         payload: dataAction,
-      };
+      } as const;
     },
     success: (data?: any) => {
       return {
         type: SUCCESS,
         payload: data,
-      };
+      } as const;
     },
     failed: (errorText: any) => {
       return {
         type: FAILED,
         payload: errorText,
-      };
+      } as const;
     },
   };
 };

@@ -4,11 +4,11 @@ import dayjs from 'dayjs';
 // @ts-ignore
 import { API_KEY as apiKey } from 'react-native-dotenv';
 import ApiService from '@services/config';
-import { ArticleDataFromAPI } from '@core/pages/MainArticlesScreen/namespace';
 import {
   topicValues,
   sortValues,
   timeValues,
+  ArticleDataFromAPI,
 } from '@pages/MainArticlesScreen/namespace/index';
 
 const getArticlesService = (
@@ -16,7 +16,7 @@ const getArticlesService = (
   topic?: string,
   sortBy?: string,
   date?: string,
-) => {
+): Promise<ArticleDataFromAPI> => {
   const now = dayjs();
   const selectedTopic = topic || topicValues.sport;
   const sort = sortBy || sortValues.popularity;

@@ -1,4 +1,9 @@
-import axios, { AxiosResponse, AxiosError, AxiosInstance } from 'axios';
+import axios, {
+  AxiosResponse,
+  AxiosError,
+  AxiosInstance,
+  AxiosRequestConfig,
+} from 'axios';
 // linter disabled because of (hopefully temporary) incompatibility with Typescript - https://github.com/zetachang/react-native-dotenv/issues/76
 // eslint-disable-next-line
 // @ts-ignore
@@ -10,7 +15,7 @@ class ApiService {
   public request: AxiosInstance;
 
   constructor() {
-    const config = {
+    const config: AxiosRequestConfig = {
       baseURL,
       headers: {
         'Content-Type': 'application/json',
