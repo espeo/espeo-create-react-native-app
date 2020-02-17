@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios';
 import dayjs from 'dayjs';
 // eslint-disable-next-line
 // @ts-ignore
@@ -7,6 +8,7 @@ import {
   topicValues,
   sortValues,
   timeValues,
+  ArticleDataFromAPI,
 } from '@pages/MainArticlesScreen/namespace/index';
 
 const getArticlesService = (
@@ -14,7 +16,7 @@ const getArticlesService = (
   topic?: string,
   sortBy?: string,
   date?: string,
-) => {
+): Promise<ArticleDataFromAPI> => {
   const now = dayjs();
   const selectedTopic = topic || topicValues.sport;
   const sort = sortBy || sortValues.popularity;
@@ -43,9 +45,9 @@ const getArticlesService = (
     to,
     apiKey,
   };
-  return ApiService.get(url, params)
-    .then((data: any) => data)
-    .catch((error: any) => {
+  return ApiService.get<AxiosResponse<ArticleDataFromAPI>>(url, params)
+    .then(({ data }) => data)
+    .catch((error: string) => {
       throw new Error(error);
     });
 };
