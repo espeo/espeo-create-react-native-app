@@ -7,6 +7,8 @@ import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from '@styles/themes/defaultTheme';
 import { AppWrapper } from '@styles/components/containers';
 
+import Config from 'react-native-config';
+
 import { navigationStructure } from '@pages/index';
 
 import { rootStore } from './app/store';
@@ -26,6 +28,8 @@ const locale = 'en';
 const translations: Translations = {
   en: translationsEn,
 };
+
+alert(JSON.stringify(Config));
 
 const App = () => {
   return (

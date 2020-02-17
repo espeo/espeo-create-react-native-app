@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "ios": "react-native run-ios",
+    "ios:dev": "react-native run-ios --scheme espeoCreateReactNativeApp-DEV",
+    "ios:stage": "react-native run-ios --scheme espeoCreateReactNativeApp-STAGE",
+    "ios:prod": "react-native run-ios --scheme espeoCreateReactNativeApp-PROD",
     "start": "react-native start",
     "android:dev": "ENVFILE=.env react-native run-android --variant=devDebug --appIdSuffix=dev",
     "android:stage": "ENVFILE=.env.staging react-native run-android --variant=stageDebug --appIdSuffix=stage",
