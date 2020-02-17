@@ -4,10 +4,7 @@ import axios, {
   AxiosInstance,
   AxiosRequestConfig,
 } from 'axios';
-// linter disabled because of (hopefully temporary) incompatibility with Typescript - https://github.com/zetachang/react-native-dotenv/issues/76
-// eslint-disable-next-line
-// @ts-ignore
-import { API_URL as baseURL } from 'react-native-dotenv';
+import Config from 'react-native-config';
 import { ErrorCodes } from '../constants';
 import asyncStorageService from './async-storage';
 
@@ -16,7 +13,7 @@ class ApiService {
 
   constructor() {
     const config: AxiosRequestConfig = {
-      baseURL,
+      baseURL: Config.API_URL,
       headers: {
         'Content-Type': 'application/json',
         ...this.getHeaders(),
