@@ -1,4 +1,5 @@
-import { ReturnType, reduxAsyncAction } from '@namespace/index';
+import { ReturnType } from '@namespace/index';
+import { reduxAsyncAction } from '@helpers/index';
 import { FiltersProps, ArticleData } from '@pages/MainArticlesScreen/namespace';
 
 export enum MainScreenTypes {
