@@ -47,6 +47,7 @@
           ["@assets", "./src/app/assets"],
           ["@pages", "./src/app/pages"],
           ["@styles", "./src/app/styles"],
+          ["@store", "./src/app/store"],
           ["@services", "./src/app/services"],
           ["@common", "./src/app/common"],
           ["@namespace", "./src/app/namespace"],

@@ -29,7 +29,7 @@ const {
 export const mainScreenReducer = (
   state = initialState,
   action: MainScreenActions,
-) => {
+): MainArticlesScreenState => {
   switch (action.type) {
     case FETCH_ARTICLES:
     case FETCH_ARTICLES_SUCCESS:

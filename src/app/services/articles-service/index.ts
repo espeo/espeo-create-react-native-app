@@ -1,12 +1,12 @@
+import { AxiosResponse } from 'axios';
 import dayjs from 'dayjs';
-// eslint-disable-next-line
-// @ts-ignore
-import { API_KEY as apiKey } from 'react-native-dotenv';
+import Config from 'react-native-config';
 import ApiService from '@services/config';
 import {
   topicValues,
   sortValues,
   timeValues,
+  ArticleDataFromAPI,
 } from '@pages/MainArticlesScreen/namespace/index';
 
 const getArticlesService = (
@@ -14,7 +14,7 @@ const getArticlesService = (
   topic?: string,
   sortBy?: string,
   date?: string,
-) => {
+): Promise<ArticleDataFromAPI> => {
   const now = dayjs();
   const selectedTopic = topic || topicValues.sport;
   const sort = sortBy || sortValues.popularity;
@@ -41,11 +41,11 @@ const getArticlesService = (
     sortBy: sort,
     from,
     to,
-    apiKey,
+    apiKey: Config.API_KEY,
   };
-  return ApiService.get(url, params)
-    .then((data: any) => data)
-    .catch((error: any) => {
+  return ApiService.get<AxiosResponse<ArticleDataFromAPI>>(url, params)
+    .then(({ data }) => data)
+    .catch((error: string) => {
       throw new Error(error);
     });
 };
