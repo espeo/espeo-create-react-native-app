@@ -50,7 +50,8 @@
           ["@store", "./src/app/store"],
           ["@services", "./src/app/services"],
           ["@common", "./src/app/common"],
-          ["@namespace", "./src/app/namespace"]
+          ["@namespace", "./src/app/namespace"],
+          ["@helpers", "./src/app/helpers"]
         ],
         "extensions": [".ts", ".tsx", ".json", ".js"]
       }

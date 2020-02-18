@@ -15,6 +15,7 @@ module.exports = {
           '@namespace': './src/app/namespace',
           '@store': './src/app/store',
           '@common': './src/app/common',
+          '@helpers': './src/app/helpers',
         },
       },
     ],

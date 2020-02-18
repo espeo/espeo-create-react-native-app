@@ -1,4 +1,4 @@
-import { reduxAsyncReducer } from '@namespace/index';
+import { reduxAsyncReducer } from '@helpers/index';
 import {
   MainArticlesScreenState,
   topicValues,

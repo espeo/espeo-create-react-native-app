@@ -57,9 +57,17 @@
 		2D02E4901E0B4A5D006451C7 /* espeoCreateReactNativeApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "espeoCreateReactNativeApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		384B0F6E66A27936BFF1B45D /* Pods-espeoCreateReactNativeApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-espeoCreateReactNativeApp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-espeoCreateReactNativeApp-tvOSTests/Pods-espeoCreateReactNativeApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		455B1EBBF8E7EC830BA6D151 /* libPods-espeoCreateReactNativeApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-espeoCreateReactNativeApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		509CAC53619D162E9F35EF4D /* Pods-espeoCreateReactNativeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-espeoCreateReactNativeApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-espeoCreateReactNativeApp/Pods-espeoCreateReactNativeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		5DDA7EDE87E2449D7345E42F /* Pods-espeoCreateReactNativeApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-espeoCreateReactNativeApp-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-espeoCreateReactNativeApp-tvOS/Pods-espeoCreateReactNativeApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		6E2AD23D00996C811F4DEF74 /* Pods-espeoCreateReactNativeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-espeoCreateReactNativeAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-espeoCreateReactNativeAppTests/Pods-espeoCreateReactNativeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7932794F88E5CCCAC10E4F1C /* Pods-espeoCreateReactNativeApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-espeoCreateReactNativeApp-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-espeoCreateReactNativeApp-tvOS/Pods-espeoCreateReactNativeApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		9636C448B002775B9F002584 /* Pods-espeoCreateReactNativeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-espeoCreateReactNativeAppTests.debug.xcconfig"; path = "Target Support Files/Pods-espeoCreateReactNativeAppTests/Pods-espeoCreateReactNativeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		982A03F82C60D645AAFECBAB /* Pods-espeoCreateReactNativeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-espeoCreateReactNativeApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-espeoCreateReactNativeApp/Pods-espeoCreateReactNativeApp.release.xcconfig"; sourceTree = "<group>"; };
+		B359EF67E64E241EE48D5A47 /* Pods-espeoCreateReactNativeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-espeoCreateReactNativeAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-espeoCreateReactNativeAppTests/Pods-espeoCreateReactNativeAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		CE8A1619EF8B56ABAA766CE5 /* Pods-espeoCreateReactNativeApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-espeoCreateReactNativeApp-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-espeoCreateReactNativeApp-tvOSTests/Pods-espeoCreateReactNativeApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		D61BFAD841C0B534DC79C8E0 /* libPods-espeoCreateReactNativeApp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-espeoCreateReactNativeApp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3B31B0956085194B34EA63 /* Pods-espeoCreateReactNativeApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-espeoCreateReactNativeApp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-espeoCreateReactNativeApp-tvOSTests/Pods-espeoCreateReactNativeApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E5F58337FB9C4658902AF4DC /* Pods-espeoCreateReactNativeApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-espeoCreateReactNativeApp-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-espeoCreateReactNativeApp-tvOSTests/Pods-espeoCreateReactNativeApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EAF89C470B243917B8406A39 /* Pods-espeoCreateReactNativeApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-espeoCreateReactNativeApp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-espeoCreateReactNativeApp-tvOS/Pods-espeoCreateReactNativeApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
@@ -160,6 +168,14 @@
 				384B0F6E66A27936BFF1B45D /* Pods-espeoCreateReactNativeApp-tvOSTests.release.xcconfig */,
 				9636C448B002775B9F002584 /* Pods-espeoCreateReactNativeAppTests.debug.xcconfig */,
 				F61F04D13AFCBC58EF9B9C28 /* Pods-espeoCreateReactNativeAppTests.release.xcconfig */,
+				509CAC53619D162E9F35EF4D /* Pods-espeoCreateReactNativeApp.debug.xcconfig */,
+				982A03F82C60D645AAFECBAB /* Pods-espeoCreateReactNativeApp.release.xcconfig */,
+				5DDA7EDE87E2449D7345E42F /* Pods-espeoCreateReactNativeApp-tvOS.debug.xcconfig */,
+				7932794F88E5CCCAC10E4F1C /* Pods-espeoCreateReactNativeApp-tvOS.release.xcconfig */,
+				E5F58337FB9C4658902AF4DC /* Pods-espeoCreateReactNativeApp-tvOSTests.debug.xcconfig */,
+				CE8A1619EF8B56ABAA766CE5 /* Pods-espeoCreateReactNativeApp-tvOSTests.release.xcconfig */,
+				6E2AD23D00996C811F4DEF74 /* Pods-espeoCreateReactNativeAppTests.debug.xcconfig */,
+				B359EF67E64E241EE48D5A47 /* Pods-espeoCreateReactNativeAppTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -292,7 +308,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = VBWYC62C6A;
+						DevelopmentTeam = MJ7T3U4K7S;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -630,8 +646,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = VBWYC62C6A;
+				DEVELOPMENT_TEAM = MJ7T3U4K7S;
 				INFOPLIST_FILE = espeoCreateReactNativeApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				NEW_SETTING = "";
 				OTHER_LDFLAGS = (
@@ -639,7 +656,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.espeoCreateReactNativeAppTest;
 				PRODUCT_NAME = espeoCreateReactNativeApp;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -651,8 +668,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VBWYC62C6A;
+				DEVELOPMENT_TEAM = MJ7T3U4K7S;
 				INFOPLIST_FILE = espeoCreateReactNativeApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				NEW_SETTING = "";
 				OTHER_LDFLAGS = (
@@ -660,7 +678,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.espeoCreateReactNativeAppTest;
 				PRODUCT_NAME = espeoCreateReactNativeApp;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
