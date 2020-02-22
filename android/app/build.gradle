@@ -132,8 +132,11 @@ android {
         applicationId "com.espeocreatereactnativeapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        // bitrise set versions automaticly, if you want to make deploy locally just uncomment it
+        /*
+          versionCode 2
+          versionName "2.0"
+        */
         resValue "string", "build_config_package", "com.espeocreatereactnativeapp"
     }
     splits {
@@ -165,8 +168,8 @@ android {
             signingConfig signingConfigs.debug
         }
         release {
-            // Caution! In production, you need to generate your own keystore file.
-            // see https://facebook.github.io/react-native/docs/signed-apk-android.
+            // this release signing configs only for local build, where variables from gradle.properties are available
+            // In case of bitrise signing is done as a separate step after generating APK
             if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
               signingConfig signingConfigs.release
             }
