@@ -132,11 +132,8 @@ android {
         applicationId "com.espeocreatereactnativeapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        // bitrise set versions automaticly, if you want to make deploy locally just uncomment it
-        /*
-          versionCode 2
-          versionName "2.0"
-        */
+        versionCode 1
+        versionName "1.0"
         resValue "string", "build_config_package", "com.espeocreatereactnativeapp"
     }
     splits {
