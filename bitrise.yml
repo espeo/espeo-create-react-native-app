@@ -1,0 +1,60 @@
+---
+format_version: '8'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: react-native
+trigger_map:
+  - push_branch: '*'
+    workflow: deploy
+  - pull_request_source_branch: '*'
+    workflow: deploy
+workflows:
+  deploy:
+    steps:
+      - activate-ssh-key@4.0.3:
+          run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+      - git-clone@4.0.17: {}
+      - yarn@0.1.0:
+          inputs:
+            - command: install
+      - change-android-versioncode-and-versionname@1.2.3:
+          inputs:
+            - new_version_name: '$BITRISE_BUILD_NUMBER.0.0'
+            - build_gradle_path: '$BITRISE_SOURCE_DIR/android/app/build.gradle'
+      - android-build@0.10.0:
+          inputs:
+            - arguments: ''
+            - project_location: '$BITRISE_SOURCE_DIR/android'
+            - app_path_pattern: '*/build/outputs/apk/*.apk'
+            - module: app
+      - sign-apk@1.4.3:
+          inputs:
+            - android_app: ' $BITRISE_DEPLOY_DIR/app-prod-release-unsigned.apk'
+      - google-play-deploy@3.0.1:
+          inputs:
+            - package_name: com.espeocreatereactnativeapp.prod
+            - track: alpha-test
+            - service_account_json_key_path: '$BITRISEIO_GOOGLE_PLAY_URL'
+      - deploy-to-bitrise-io@1.9.2: {}
+app:
+  envs:
+    - opts:
+        is_expand: false
+      PROJECT_LOCATION: android
+    - opts:
+        is_expand: false
+      MODULE: app
+    - opts:
+        is_expand: false
+      VARIANT: ''
+    - opts:
+        is_expand: false
+      BITRISE_PROJECT_PATH: ios/espeoCreateReactNativeApp.xcworkspace
+    - opts:
+        is_expand: false
+      BITRISE_SCHEME: espeoCreateReactNativeApp-DEV
+    - opts:
+        is_expand: false
+      BITRISE_EXPORT_METHOD: ad-hoc
+    - ENVFILE: '.env.production'
+      opts:
+        is_expand: false
