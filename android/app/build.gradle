@@ -132,6 +132,7 @@ android {
         applicationId "com.espeocreatereactnativeapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
+        // versionCode and versionName are automaticly replaced in bitrise
         versionCode 1
         versionName "1.0"
         resValue "string", "build_config_package", "com.espeocreatereactnativeapp"
@@ -165,7 +166,7 @@ android {
             signingConfig signingConfigs.debug
         }
         release {
-            // this release signing configs only for local build, where variables from gradle.properties are available
+            // this release signing configs should only be loaded for local build, where variables from gradle.properties are available
             // In case of bitrise signing is done as a separate step after generating APK
             if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
               signingConfig signingConfigs.release
