@@ -24,8 +24,8 @@ class ArticleScreen extends PureComponent<ArticleScreenProps> {
   };
 
   private openArticleInBrowser = () => {
-    const { intl, navigation } = this.props;
-    const { url } = navigation.state.params?.article;
+    const { intl, route } = this.props;
+    const { url } = route.params?.article;
     try {
       Linking.canOpenURL(url).then(supported => {
         if (supported) {
@@ -42,8 +42,8 @@ class ArticleScreen extends PureComponent<ArticleScreenProps> {
   };
 
   public render() {
-    const { intl, navigation } = this.props;
-    const articleData: ArticleData = navigation.state.params?.article;
+    const { intl, route } = this.props;
+    const articleData: ArticleData = route.params?.article;
 
     return (
       <ArticleWrapper>

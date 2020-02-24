@@ -6,8 +6,7 @@ import {
   sortValues,
   PickerData,
 } from '@pages/MainArticlesScreen/namespace';
-import Modules from '@core/pages';
-
+import { RouteNames } from '@common/types/navigation';
 import { StyledButton } from '@styles/components';
 import { StateProps, DispatchProps, OwnProps } from './index';
 import { Filters, Article, MainWrapper, ArticlesFlatList } from './components';
@@ -20,7 +19,7 @@ class MainScreen extends PureComponent<MainScreenProps> {
   }
 
   private handleToSecondScreen = () => {
-    this.props.navigation.navigate(Modules.ProfileScreenModule.name);
+    this.props.navigation.navigate(RouteNames.ProfileScreen);
   };
 
   private getArticles = () => {
@@ -52,12 +51,15 @@ class MainScreen extends PureComponent<MainScreenProps> {
       date,
       sortBy,
       clearArticlesFilters,
+      navigation,
     } = this.props;
     return (
       <MainWrapper>
         <ArticlesFlatList
           data={data}
-          renderItem={({ item }) => <Article article={item} />}
+          renderItem={({ item }) => (
+            <Article navigation={navigation} article={item} />
+          )}
           initialNumToRender={5}
           keyExtractor={() => v1()}
           ListHeaderComponent={

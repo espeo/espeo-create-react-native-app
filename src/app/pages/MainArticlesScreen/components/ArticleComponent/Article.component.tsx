@@ -1,12 +1,9 @@
 import React, { PureComponent } from 'react';
-import { NavigationStackScreenProps } from 'react-navigation-stack';
-import { WrappedComponentProps } from 'react-intl';
 import dayjs from 'dayjs';
 
-import { ArticleData } from '@pages/MainArticlesScreen/namespace';
 import { fallbackImage } from '@core/constants';
 import { StyledButton } from '@styles/components';
-import Modules from '@core/pages';
+import { RouteNames } from '@common/types/navigation';
 import {
   ArticleDescription,
   ArticleImage,
@@ -15,19 +12,13 @@ import {
   ArticleMetaDataWrapper,
   ArticleMetaTitle,
 } from './Article.styles';
+import { OwnProps } from './index';
 
-interface OwnProps {
-  article: ArticleData;
-}
-
-type ArticleScreenProps = WrappedComponentProps &
-  NavigationStackScreenProps &
-  OwnProps;
-
-class ArticleComponent extends PureComponent<ArticleScreenProps> {
+class ArticleComponent extends PureComponent<OwnProps> {
   private goToOwnPage = () => {
-    this.props.navigation.navigate(Modules.ArticleScreenModule.name, {
-      article: this.props.article,
+    const { article, navigation } = this.props;
+    navigation.navigate(RouteNames.ArticleScreen, {
+      article,
     });
   };
 

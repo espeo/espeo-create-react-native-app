@@ -1,10 +1,17 @@
 import React from 'react';
-import { compose } from 'redux';
-import { injectIntl } from 'react-intl';
-import { withNavigation } from 'react-navigation';
+import { injectIntl, WrappedComponentProps } from 'react-intl';
+import { StackNavigationProp } from '@react-navigation/stack';
 
+import { ArticleData } from '@core/pages/MainArticlesScreen/namespace';
+import { RootStackParamList } from '@core/pages';
+import { RouteNames } from '@core/common/types/navigation';
 import ArticleComponent from './Article.component';
 
-export const Article = compose(
-  withNavigation(injectIntl(ArticleComponent)),
-) as React.ReactType;
+interface ArticleScreenProps {
+  article: ArticleData;
+  navigation: StackNavigationProp<RootStackParamList, RouteNames.MainScreen>;
+}
+
+export type OwnProps = WrappedComponentProps & ArticleScreenProps;
+
+export const Article = injectIntl(ArticleComponent) as React.ReactType;

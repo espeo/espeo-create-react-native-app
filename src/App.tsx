@@ -1,21 +1,14 @@
 import React from 'react';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
 import { Provider } from 'react-redux';
 import { IntlProvider } from 'react-intl';
+import { NavigationContainer } from '@react-navigation/native';
 import { ThemeProvider } from 'styled-components';
+
 import { defaultTheme } from '@styles/themes/defaultTheme';
 import { AppWrapper } from '@styles/components/containers';
-
-import { navigationStructure } from '@pages/index';
-
+import translationsEn from '@assets/i18n/en.json';
+import { NavigationStructure } from '@pages/index';
 import { rootStore } from './app/store';
-
-const AppNavigator = createStackNavigator(navigationStructure);
-
-const AppContainer = createAppContainer(AppNavigator);
-
-const translationsEn = require('@assets/i18n/en');
 
 interface Translations {
   en: any;
@@ -29,15 +22,17 @@ const translations: Translations = {
 
 const App = () => {
   return (
-    <Provider store={rootStore}>
-      <IntlProvider locale={locale} messages={translations[locale]}>
-        <ThemeProvider theme={defaultTheme}>
-          <AppWrapper>
-            <AppContainer />
-          </AppWrapper>
-        </ThemeProvider>
-      </IntlProvider>
-    </Provider>
+    <NavigationContainer>
+      <Provider store={rootStore}>
+        <IntlProvider locale={locale} messages={translations[locale]}>
+          <ThemeProvider theme={defaultTheme}>
+            <AppWrapper>
+              <NavigationStructure />
+            </AppWrapper>
+          </ThemeProvider>
+        </IntlProvider>
+      </Provider>
+    </NavigationContainer>
   );
 };
 

@@ -1,15 +1,12 @@
 import React, { PureComponent } from 'react';
 import { Button } from 'react-native';
-import Config from 'react-native-config';
-
-import { Text } from '@styles/components';
-import { NavigationStackScreenProps } from 'react-navigation-stack';
-import { injectIntl, WrappedComponentProps } from 'react-intl';
+import { WrappedComponentProps } from 'react-intl';
 import { ProfileWrapper, ProfileTitle } from './components/Profile.styles';
+import { ProfileScreenProps } from './index';
 
-type ProfileProps = WrappedComponentProps & NavigationStackScreenProps;
+type OwnProps = WrappedComponentProps & ProfileScreenProps;
 
-class ProfileScreen extends PureComponent<ProfileProps> {
+export class ProfileScreen extends PureComponent<OwnProps> {
   handleBack = () => {
     this.props.navigation.goBack();
   };
@@ -21,7 +18,6 @@ class ProfileScreen extends PureComponent<ProfileProps> {
         <ProfileTitle>
           {intl.formatMessage({ id: 'profile.title' })}
         </ProfileTitle>
-        <Text>{Config.TYPE}</Text>
         <Button
           title={intl.formatMessage({ id: 'profile.button' })}
           onPress={this.handleBack}
@@ -30,5 +26,3 @@ class ProfileScreen extends PureComponent<ProfileProps> {
     );
   }
 }
-
-export default injectIntl(ProfileScreen);
