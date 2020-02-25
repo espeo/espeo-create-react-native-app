@@ -28,6 +28,7 @@ build/
 .gradle
 local.properties
 espeogoogleplay.json
+espeo-key.keystore
 *.iml
 .vscode/
 .project
