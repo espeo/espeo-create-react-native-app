@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "ios:dev": "react-native run-ios --scheme espeoCreateReactNativeApp-DEV",
-    "ios:stage": "react-native run-ios --scheme espeoCreateReactNativeApp-STAGE",
-    "ios:prod": "react-native run-ios --scheme espeoCreateReactNativeApp-PROD",
+    "ios:dev": "react-native run-ios --configuration Debug --scheme espeoCreateReactNativeApp-DEV",
+    "ios:stage": "react-native run-ios --configuration Debug --scheme espeoCreateReactNativeApp-STAGE",
+    "ios:prod": "react-native run-ios --configuration Debug --scheme espeoCreateReactNativeApp-PROD",
     "release-ios:dev": "react-native run-ios --configuration Release --scheme espeoCreateReactNativeApp-DEV",
     "release-ios:stage": "react-native run-ios --configuration Release --scheme espeoCreateReactNativeApp-STAGE",
     "release-ios:prod": "react-native run-ios --configuration Release --scheme espeoCreateReactNativeApp-PROD",
