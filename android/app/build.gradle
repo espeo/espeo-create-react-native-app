@@ -188,7 +188,7 @@ android {
             dimension "default"
         }
         prod {
-            // applicationId "com.espeocreatereactnativeapp.prodd" Fastlane deploy
+            // .prodd local google play test using fastlane
             applicationId "com.espeocreatereactnativeapp.prodd"
             dimension "default"
         }
