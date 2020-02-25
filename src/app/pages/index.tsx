@@ -15,30 +15,28 @@ export type RootStackParamList = {
 
 const Stack = createStackNavigator<RootStackParamList>();
 
-export const NavigationStructure = () => {
-  return (
-    <Stack.Navigator initialRouteName={RouteNames.MainScreen}>
-      <Stack.Screen
-        name={RouteNames.MainScreen}
-        component={MainScreen}
-        options={{
-          header: () => <NavigationTitle title="mainArticles.header" />,
-        }}
-      />
-      <Stack.Screen
-        name={RouteNames.ArticleScreen}
-        component={ArticleScreen}
-        options={{
-          header: () => <NavigationTitle title="mainArticles.header" />,
-        }}
-      />
-      <Stack.Screen
-        name={RouteNames.ProfileScreen}
-        component={ProfileScreen}
-        options={{
-          header: () => <NavigationTitle title="mainArticles.header" />,
-        }}
-      />
-    </Stack.Navigator>
-  );
-};
+export const NavigationStructure = () => (
+  <Stack.Navigator initialRouteName={RouteNames.MainScreen}>
+    <Stack.Screen
+      name={RouteNames.MainScreen}
+      component={MainScreen}
+      options={{
+        header: () => <NavigationTitle title="mainArticles.header" />,
+      }}
+    />
+    <Stack.Screen
+      name={RouteNames.ArticleScreen}
+      component={ArticleScreen}
+      options={{
+        header: () => <NavigationTitle title="mainArticles.header" />,
+      }}
+    />
+    <Stack.Screen
+      name={RouteNames.ProfileScreen}
+      component={ProfileScreen}
+      options={{
+        header: () => <NavigationTitle title="mainArticles.header" />,
+      }}
+    />
+  </Stack.Navigator>
+);

@@ -3,7 +3,6 @@ import { Linking } from 'react-native';
 import dayjs from 'dayjs';
 import { StyledButton } from '@styles/components';
 import { fallbackImage } from '@core/constants';
-import { ArticleData } from '@pages/MainArticlesScreen/namespace';
 import { StateProps, OwnProps } from './index';
 import {
   ArticleMetaDataWrapper,

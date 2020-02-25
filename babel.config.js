@@ -1,7 +1,11 @@
 module.exports = {
-  presets: ['module:metro-react-native-babel-preset'],
+  presets: [
+    'module:metro-react-native-babel-preset',
+    ['@babel/preset-env', { modules: 'commonjs' }],
+  ],
   plugins: [
     ['@babel/plugin-proposal-decorators', { legacy: true }],
+    ['@babel/plugin-proposal-class-properties', { loose: true }],
     [
       'module-resolver',
       {
@@ -20,4 +24,9 @@ module.exports = {
       },
     ],
   ],
+  env: {
+    test: {
+      presets: ['react-native', ['@babel/preset-env']],
+    },
+  },
 };

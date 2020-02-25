@@ -6,9 +6,10 @@ import { ThemeProvider } from 'styled-components';
 
 import { defaultTheme } from '@styles/themes/defaultTheme';
 import { AppWrapper } from '@styles/components/containers';
-import translationsEn from '@assets/i18n/en.json';
 import { NavigationStructure } from '@pages/index';
 import { rootStore } from './app/store';
+
+const translationsEn = require('@assets/i18n/en.json');
 
 interface Translations {
   en: any;
