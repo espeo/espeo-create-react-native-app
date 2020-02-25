@@ -1,6 +1,10 @@
 import React, { PureComponent } from 'react';
 import dayjs from 'dayjs';
+import { WrappedComponentProps, injectIntl } from 'react-intl';
+import { StackNavigationProp } from '@react-navigation/stack';
 
+import { ArticleData } from '@core/pages/MainArticlesScreen/namespace';
+import { RootStackParamList } from '@core/pages';
 import { fallbackImage } from '@core/constants';
 import { StyledButton } from '@styles/components';
 import { RouteNames } from '@common/types/navigation';
@@ -12,7 +16,13 @@ import {
   ArticleMetaDataWrapper,
   ArticleMetaTitle,
 } from './Article.styles';
-import { OwnProps } from './index';
+
+interface ArticleScreenProps {
+  article: ArticleData;
+  navigation: StackNavigationProp<RootStackParamList, RouteNames.MainScreen>;
+}
+
+type OwnProps = WrappedComponentProps & ArticleScreenProps;
 
 class ArticleComponent extends PureComponent<OwnProps> {
   private goToOwnPage = () => {
@@ -52,4 +62,4 @@ class ArticleComponent extends PureComponent<OwnProps> {
   }
 }
 
-export default ArticleComponent;
+export const Article = injectIntl(ArticleComponent) as React.ReactType;

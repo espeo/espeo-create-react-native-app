@@ -1,7 +1,7 @@
 import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { injectIntl, WrappedComponentProps } from 'react-intl';
+import { injectIntl } from 'react-intl';
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
@@ -17,12 +17,10 @@ export interface StateProps {
   data: Array<ArticleData>;
 }
 
-interface ArticleScreenProps {
+export interface ArticleScreenProps {
   navigation: StackNavigationProp<RootStackParamList, RouteNames.ArticleScreen>;
   route: RouteProp<RootStackParamList, RouteNames.ArticleScreen>;
 }
-
-export type OwnProps = WrappedComponentProps & ArticleScreenProps;
 
 interface ReducerType {
   mainScreenReducer: MainArticlesScreenState;
@@ -36,5 +34,5 @@ const mapStateToProps = (state: ReducerType): StateProps => {
 
 export default compose(
   injectIntl,
-  connect<StateProps, null, OwnProps, ReducerType>(mapStateToProps),
+  connect<StateProps, null, ArticleScreenProps, ReducerType>(mapStateToProps),
 )(ArticleScreen) as React.ComponentType;

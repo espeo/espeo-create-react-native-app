@@ -17,28 +17,16 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 export const NavigationStructure = () => {
   return (
-    <Stack.Navigator initialRouteName={RouteNames.MainScreen}>
-      <Stack.Screen
-        name={RouteNames.MainScreen}
-        component={MainScreen}
-        options={{
-          header: () => <NavigationTitle title="mainArticles.header" />,
-        }}
-      />
-      <Stack.Screen
-        name={RouteNames.ArticleScreen}
-        component={ArticleScreen}
-        options={{
-          header: () => <NavigationTitle title="mainArticles.header" />,
-        }}
-      />
-      <Stack.Screen
-        name={RouteNames.ProfileScreen}
-        component={ProfileScreen}
-        options={{
-          header: () => <NavigationTitle title="mainArticles.header" />,
-        }}
-      />
+    <Stack.Navigator
+      initialRouteName={RouteNames.MainScreen}
+      screenOptions={{
+        header: () => <NavigationTitle title="mainArticles.header" />,
+        headerStyle: { height: 60 },
+      }}
+    >
+      <Stack.Screen name={RouteNames.MainScreen} component={MainScreen} />
+      <Stack.Screen name={RouteNames.ArticleScreen} component={ArticleScreen} />
+      <Stack.Screen name={RouteNames.ProfileScreen} component={ProfileScreen} />
     </Stack.Navigator>
   );
 };

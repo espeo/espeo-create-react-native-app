@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import { Linking } from 'react-native';
 import dayjs from 'dayjs';
+import { WrappedComponentProps } from 'react-intl';
 import { StyledButton } from '@styles/components';
 import { fallbackImage } from '@core/constants';
-import { ArticleData } from '@pages/MainArticlesScreen/namespace';
-import { StateProps, OwnProps } from './index';
+import { StateProps, ArticleScreenProps } from './index';
 import {
   ArticleMetaDataWrapper,
   ArticleContent,
@@ -16,9 +16,9 @@ import {
   ArticleWrapper,
 } from './components/ArticleScreen.styles';
 
-type ArticleScreenProps = OwnProps & StateProps;
+type OwnProps = StateProps & WrappedComponentProps & ArticleScreenProps;
 
-class ArticleScreen extends PureComponent<ArticleScreenProps> {
+class ArticleScreen extends PureComponent<OwnProps> {
   private handleBack = () => {
     this.props.navigation.goBack();
   };
