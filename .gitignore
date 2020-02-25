@@ -27,6 +27,7 @@ build/
 .idea
 .gradle
 local.properties
+espeogoogleplay.json
 *.iml
 .vscode/
 .project
@@ -53,9 +54,14 @@ buck-out/
 */fastlane/report.xml
 */fastlane/Preview.html
 */fastlane/screenshots
+*/fastlane/metadata
 
 # Bundle artifact
 *.jsbundle
 
 # CocoaPods
 /ios/Pods/
+
+#Ruby
+/ios/vendor
+/android/vendor

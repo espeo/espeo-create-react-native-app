@@ -132,9 +132,10 @@ android {
         applicationId "com.espeocreatereactnativeapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
+        versionCode 2
         versionName "1.0"
         resValue "string", "build_config_package", "com.espeocreatereactnativeapp"
+        multiDexEnabled true
     }
     splits {
         abi {
@@ -178,12 +179,13 @@ android {
             applicationId "com.espeocreatereactnativeapp.dev"
             dimension "default"
         }
-         stage {
+        stage {
             applicationId "com.espeocreatereactnativeapp.stage"
             dimension "default"
         }
         prod {
-            applicationId "com.espeocreatereactnativeapp.prod"
+            // applicationId "com.espeocreatereactnativeapp.prodd" Fastlane deploy
+            applicationId "com.espeocreatereactnativeapp.prodd"
             dimension "default"
         }
 
