@@ -1,0 +1,40 @@
+---
+format_version: '8'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: react-native
+trigger_map:
+  - push_branch: '*'
+    workflow: deploy
+  - pull_request_source_branch: '*'
+    workflow: deploy
+workflows:
+  deploy:
+    steps:
+      - activate-ssh-key@4.0.3:
+          run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+      - git-clone@4.0.17: {}
+      - yarn@0.1.0:
+          inputs:
+            - command: install
+      - cocoapods-install@1.10.1:
+          inputs:
+            - podfile_path: ios/Podfile
+      - certificate-and-profile-installer@1.10.3: {}
+      - set-xcode-build-number@1.0.9:
+          inputs:
+            - plist_path: '$BITRISE_SOURCE_DIR/ios/espeoCreateReactNativeApp/Info.plist'
+      - xcode-archive@2.7.1:
+          inputs:
+            - export_method: app-store
+            - scheme: espeoCreateReactNativeApp-PROD
+            - configuration: Release
+            - project_path: ios/espeoCreateReactNativeApp.xcworkspace
+      - deploy-to-itunesconnect-application-loader@0.10.1:
+          inputs:
+            - password: '$APPLE_ID_PASSWORD'
+            - app_password: '$APPLE_APPLICATION_PASSWORD'
+            - itunescon_user: '$APPLE_ID'
+      - deploy-to-bitrise-io@1.9.2:
+          inputs:
+            - is_compress: 'true'
+          is_always_run: false
