@@ -114,9 +114,9 @@ Boths should be uploaded to bitrise to have 2 separate workflows for each platfo
 
 Prooper code signing need to be uploaded to bitrise. In case of Ios: provisioning profiles and code signing certificates. First make sure you project is building fine on your local Xcode and you have all proper certificates:
 
--development certificate for you
--distribution certificate for your team
--provisioning profile for realeasing to app store
+- development certificate for you
+- distribution certificate for your team
+- provisioning profile for realeasing to app store
 
 Then use: https://github.com/bitrise-io/codesigndoc to gather or certificates and provisoning profiles required by Apple. They should be automaticly uploaded to your bitrise account.
 
