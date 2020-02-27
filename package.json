@@ -17,7 +17,7 @@
     "release-android:stage": "cd android && ENVFILE=.env.staging ./gradlew assembleStageRelease",
     "release-android:prod": "cd android && ENVFILE=.env.production ./gradlew assembleProdRelease",
     "test": "jest",
-    "prettier:write": "npx prettier --write **/*.{js,jsx,ts,tsx,json} && npx prettier --write *.{js,jsx,ts,tsx,json}",
+    "prettier:write": "prettier --write **/*.{js,jsx,ts,tsx,json} && prettier --write *.{js,jsx,ts,tsx,json}",
     "lint": "eslint --config ./.eslintrc.json 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
