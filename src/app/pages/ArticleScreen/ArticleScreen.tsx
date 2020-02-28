@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import { Linking } from 'react-native';
 import dayjs from 'dayjs';
+import { WrappedComponentProps } from 'react-intl';
 import { StyledButton } from '@styles/components';
 import { fallbackImage } from '@core/constants';
-import { ArticleData } from '@pages/MainArticlesScreen/namespace';
-import { StateProps, OwnProps } from './index';
+import { StateProps, ArticleScreenProps } from './index';
 import {
   ArticleMetaDataWrapper,
   ArticleContent,
@@ -16,16 +16,16 @@ import {
   ArticleWrapper,
 } from './components/ArticleScreen.styles';
 
-type ArticleScreenProps = OwnProps & StateProps;
+type OwnProps = StateProps & WrappedComponentProps & ArticleScreenProps;
 
-class ArticleScreen extends PureComponent<ArticleScreenProps> {
+class ArticleScreen extends PureComponent<OwnProps> {
   private handleBack = () => {
     this.props.navigation.goBack();
   };
 
   private openArticleInBrowser = () => {
-    const { intl, navigation } = this.props;
-    const { url } = navigation.state.params?.article;
+    const { intl, route } = this.props;
+    const { url } = route.params.article;
     try {
       Linking.canOpenURL(url).then(supported => {
         if (supported) {
@@ -42,8 +42,8 @@ class ArticleScreen extends PureComponent<ArticleScreenProps> {
   };
 
   public render() {
-    const { intl, navigation } = this.props;
-    const articleData: ArticleData = navigation.state.params?.article;
+    const { intl, route } = this.props;
+    const articleData = route.params.article;
 
     return (
       <ArticleWrapper>

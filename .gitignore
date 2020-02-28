@@ -21,6 +21,9 @@ DerivedData
 *.ipa
 *.xcuserstate
 
+#codesigndic exports
+ios/codesigndoc_exports/
+
 # Android/IntelliJ/ Vscode
 #
 build/
