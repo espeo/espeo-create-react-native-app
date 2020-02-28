@@ -65,3 +65,6 @@ buck-out/
 #Ruby
 /ios/vendor
 /android/vendor
+
+#Bitrise
+bitrise.yml

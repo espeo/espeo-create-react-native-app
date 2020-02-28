@@ -305,10 +305,13 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 8WFAX8N7ZM;
+						ProvisioningStyle = Manual;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 8WFAX8N7ZM;
+						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -601,6 +604,9 @@
 			baseConfigurationReference = 9636C448B002775B9F002584 /* Pods-espeoCreateReactNativeAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 8WFAX8N7ZM;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -615,6 +621,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/espeoCreateReactNativeApp.app/espeoCreateReactNativeApp";
 			};
 			name = Debug;
@@ -624,7 +632,9 @@
 			baseConfigurationReference = F61F04D13AFCBC58EF9B9C28 /* Pods-espeoCreateReactNativeAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 8WFAX8N7ZM;
 				INFOPLIST_FILE = espeoCreateReactNativeAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -644,20 +654,24 @@
 			baseConfigurationReference = 20F87309AD2950E63B6BBD18 /* Pods-espeoCreateReactNativeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 8WFAX8N7ZM;
 				INFOPLIST_FILE = espeoCreateReactNativeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 6.0;
 				NEW_SETTING = "";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.espeoCreateReactNativeAppTest;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.espeoCreateReactNative;
 				PRODUCT_NAME = espeoCreateReactNativeApp;
+				PROVISIONING_PROFILE_SPECIFIER = "match Development org.reactjs.native.example.espeoCreateReactNative";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -667,19 +681,23 @@
 			baseConfigurationReference = F5CC0DB6F324E7BE19BCCD47 /* Pods-espeoCreateReactNativeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8WFAX8N7ZM;
 				INFOPLIST_FILE = espeoCreateReactNativeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 6.0;
 				NEW_SETTING = "";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.espeoCreateReactNativeAppTest;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.espeoCreateReactNative;
 				PRODUCT_NAME = espeoCreateReactNativeApp;
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore org.reactjs.native.example.espeoCreateReactNative";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
