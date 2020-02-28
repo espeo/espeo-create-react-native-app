@@ -657,25 +657,15 @@
 			baseConfigurationReference = F5CC0DB6F324E7BE19BCCD47 /* Pods-espeoCreateReactNativeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-<<<<<<< HEAD
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
-=======
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
->>>>>>> 5345435ec3f4ae45555369c797c420d007e70205
 				DEVELOPMENT_TEAM = 8WFAX8N7ZM;
 				INFOPLIST_FILE = espeoCreateReactNativeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-<<<<<<< HEAD
-				MARKETING_VERSION = 6.0;
-=======
 				MARKETING_VERSION = 4.0;
->>>>>>> 5345435ec3f4ae45555369c797c420d007e70205
 				NEW_SETTING = "";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -684,12 +674,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.espeoCreateReactNative;
 				PRODUCT_NAME = espeoCreateReactNativeApp;
-<<<<<<< HEAD
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore org.reactjs.native.example.espeoCreateReactNative";
-=======
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
->>>>>>> 5345435ec3f4ae45555369c797c420d007e70205
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
