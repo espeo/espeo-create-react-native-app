@@ -1,12 +1,13 @@
 import React, { PureComponent } from 'react';
-import { NavigationStackScreenProps } from 'react-navigation-stack';
-import { WrappedComponentProps } from 'react-intl';
 import dayjs from 'dayjs';
+import { WrappedComponentProps, injectIntl } from 'react-intl';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-import { ArticleData } from '@pages/MainArticlesScreen/namespace';
+import { ArticleData } from '@core/pages/MainArticlesScreen/namespace';
+import { RootStackParamList } from '@core/pages';
 import { fallbackImage } from '@core/constants';
 import { StyledButton } from '@styles/components';
-import Modules from '@core/pages';
+import { RouteNames } from '@common/types/navigation';
 import {
   ArticleDescription,
   ArticleImage,
@@ -16,18 +17,18 @@ import {
   ArticleMetaTitle,
 } from './Article.styles';
 
-interface OwnProps {
+interface ArticleScreenProps {
   article: ArticleData;
+  navigation: StackNavigationProp<RootStackParamList, RouteNames.MainScreen>;
 }
 
-type ArticleScreenProps = WrappedComponentProps &
-  NavigationStackScreenProps &
-  OwnProps;
+type OwnProps = WrappedComponentProps & ArticleScreenProps;
 
-class ArticleComponent extends PureComponent<ArticleScreenProps> {
+class ArticleComponent extends PureComponent<OwnProps> {
   private goToOwnPage = () => {
-    this.props.navigation.navigate(Modules.ArticleScreenModule.name, {
-      article: this.props.article,
+    const { article, navigation } = this.props;
+    navigation.navigate(RouteNames.ArticleScreen, {
+      article,
     });
   };
 
@@ -61,4 +62,4 @@ class ArticleComponent extends PureComponent<ArticleScreenProps> {
   }
 }
 
-export default ArticleComponent;
+export const Article = injectIntl(ArticleComponent) as React.ReactType;

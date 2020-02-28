@@ -2,13 +2,10 @@ import React from 'react';
 import { compose, bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { injectIntl, WrappedComponentProps } from 'react-intl';
-import { NavigationScreenComponent } from 'react-navigation';
-import { NavigationStackScreenProps } from 'react-navigation-stack';
-import {
-  NavigationStructureProps,
-  ScreenPropsConfig,
-} from '@common/types/navigation';
-import { NavigationTitle } from '@common/components';
+import { StackNavigationProp } from '@react-navigation/stack';
+
+import { RootStackParamList } from '@core/pages';
+import { RouteNames } from '@common/types/navigation';
 import {
   MainArticlesScreenState,
   ArticleData,
@@ -39,7 +36,11 @@ export interface StateProps {
   date: timeTypes;
 }
 
-export type OwnProps = WrappedComponentProps & NavigationStackScreenProps;
+interface MainArticlesScreenProps {
+  navigation: StackNavigationProp<RootStackParamList, RouteNames.MainScreen>;
+}
+
+export type OwnProps = WrappedComponentProps & MainArticlesScreenProps;
 
 interface ReducerType {
   mainScreenReducer: MainArticlesScreenState;
@@ -61,23 +62,10 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps =>
     dispatch,
   );
 
-const MainScreenComposed = compose<
-  NavigationScreenComponent<ScreenPropsConfig, NavigationStructureProps>
->(
+export default compose(
   injectIntl,
   connect<StateProps, DispatchProps, OwnProps, ReducerType>(
     mapStateToProps,
     mapDispatchToProps,
   ),
-)(MainScreen);
-
-export const MainScreenModule: ScreenPropsConfig = {
-  module: MainScreenComposed,
-  name: 'MainScreen',
-  options: {
-    header: () => <NavigationTitle title="mainArticles.header" />,
-    headerStyle: {
-      height: 60,
-    },
-  },
-};
+)(MainScreen) as React.ComponentType;
