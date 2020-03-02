@@ -112,7 +112,7 @@ Boths should be uploaded to bitrise to have 2 separate workflows for each platfo
 
 ### IOS
 
-Prooper code signing need to be uploaded to bitrise. In case of Ios: provisioning profiles and code signing certificates. First make sure you project is building fine on your local Xcode and you have all proper certificates:
+Prooper code signing need to be uploaded to bitrise. In case of Ios: provisioning profiles and code signing certificates. First make sure your project is building fine on your local Xcode and you have all proper certificates:
 
 - development certificate for you
 - distribution certificate for your team
@@ -127,3 +127,70 @@ Setup secret Enviromental variables: APPLE_ID, APPLE_ID_PASSWORD, APPLE_APPLICAT
 Upload your keystore to Code Signing tab in bitrise.
 
 Setup Env variable pointing to env variable you want to use in application f.e. ENVFILE = .env.production
+
+## Fastlane
+
+### Installation
+
+Make sure you have the latest version of the Xcode command line tools installed:
+
+```
+xcode-select --install
+```
+
+Install _fastlane_ using
+
+```
+[sudo] gem install fastlane -NV
+```
+
+or alternatively using `brew cask install fastlane`
+
+## Available Actions
+
+### iOS
+
+### ios release
+
+```
+fastlane ios release
+```
+
+Push a new release build to the App Store
+
+### ios beta
+
+```
+fastlane ios beta
+```
+
+Push a new release build to TestFlight
+
+### Android
+
+### android alpha
+
+```
+fastlane android alpha
+```
+
+Submit alpha release to Google Play Store
+
+### android beta
+
+```
+fastlane android beta
+```
+
+Submit beta release to Google Play Store
+
+### android production
+
+```
+fastlane android production
+```
+
+Submit production release to Google Play Store
+
+More information about fastlane can be found on [fastlane.tools](https://fastlane.tools).
+The documentation of fastlane can be found on [docs.fastlane.tools](https://docs.fastlane.tools).
